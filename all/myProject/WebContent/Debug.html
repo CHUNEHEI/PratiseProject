@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>全局变量和调用另一个函数的变量</title>
+<style>
+.ppp{color:red}
+</style>
+<script>
+/* var h;
+function debu(){
+	var a="str";
+	h=12;
+	return {a:a};
+}
+var text=debu();
+function debug(){
+	alert(text.a+h);
+	
+} */
+/*
+function cla(){
+	//var p=document.getElementById("pp");
+	var p=document.getElementsByClassName("ppp");//表达式正确的，不然无法运行下一个alert;
+	alert(p[0].value+p.length);//返回一个Nodelist,这个NodeList包含所有类名称匹配这个字符串值的元素
+}
+*/
+/*function foo(x) {
+    var tmp = 3;
+    function bar(y) {
+        alert(x + y + (++tmp));
+    }
+    bar(10);
+    
+}
+foo(2);
+*/
+
+
+
+</script>
+</head>
+<body bgcolor="pink">
+<button onclick="cla()">aa</button>
+<input id="pp" class="ppp">
+<p id="aq"></p>
+
+</body>
+</html>

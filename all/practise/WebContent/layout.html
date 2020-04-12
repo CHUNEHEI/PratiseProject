@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css\layout.css">
+<script>
+
+/**function fileUpload_pre(f){
+	if(typeof FileReader=='undefined'){
+		alert("当前浏览器不支持FileReader");
+	}
+	var strHtml="";
+	for(var intI=0;intI<f.length;intI++){
+		var tmpFile=f[intI];
+		var reader=new FileReader();
+	    reader.readAsDataURL(tmpFile);
+	    reader.onload=function(e){
+	    	strHtml=strHtml+"<span>";
+	    	strHtml=strHtml+"<img src='"+e.target.result+"' alt='' style='width:250px;border-radius:60px;border:1px grey solid'/>";
+	    	strHtml=strHtml+"</span>";
+	    	document.getElementById("ulUpload").innerHTML="<li>"+strHtml+"</li>";
+	    }
+	}
+}
+**/
+function fileUpload_pre(f){
+	if(typeof FileReader=='undefined'){
+		alert("当前浏览器不支持FileReader");
+	}
+	
+	for(var intI=0;intI<f.length;intI++){
+		var tmpFile=f[intI];
+		var reader=new FileReader();
+	    reader.readAsDataURL(tmpFile);
+	    reader.onload=(function(f1){ 
+	    	return function(e){
+	    	var elespan=document.createElement('span');
+	    	elespan.innerHTML=['<img src="',e.target.result,'"title="',f1.name,'"/>'].join('');
+	    	document.getElementById("ulUpload").insertBefore(elespan,null);
+	    }
+	    }
+	})(tmpFile);
+}}
+function dropFile(e){
+	fileUpload_pre(e.dataTransfer.files);
+	e.stopPropagation();
+	e.preventDedfault();
+}
+</script>
+</head>
+<body>
+  <div class="container">
+   <div class="wpp">
+     <div class="heading">
+        <div class="heading_nav">
+            <div class="heading_title">盒子世界</div>
+             <div class="heading_navbar">
+             <ul>
+              <li><a href="#">首页<font>Index</font></a></li>
+              <li><a href="#">产品<font>Product</font></a></li>
+              <li><a href="#">售后服务<font>Serve</font></a></li>
+              <li><a href="#">帮助<font>Help</font></a></li>
+             </ul>
+             </div>
+             <div class="heading_img">
+               <img src="Image\qw.jpg" style="width:30px;border-radius: 40px;
+               display:inline;box-shadow:0 1px 1px rgba(0,0,0,2);float:right;">
+             </div>
+             <div class="heading_soptlight">
+               <form><input /></form>
+             </div>
+        </div>    
+     </div>
+     <div class="body">
+   <!--
+     <input type="file" name="fileUpload" id="fileUpload" accept=".jpg" onChange="fileUpload_pre(this.files);" multiple="true" />
+     <br>
+       --> 
+     <ul id="ulUpload" style="height:430px;width:230px;border:1px black solid;background-color:red"
+     ondrop="dropFile(event)" ondragenter="return false" ondragend="return false"></ul>
+     
+     </div>
+   </div>
+  <div class="footing">
+  @heziWorld
+  </div>
+ </div>
+</body>
+</html>

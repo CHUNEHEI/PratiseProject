@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width;initial-scale=1;maxmum-scale=1;user-scalable="no">
+<title>Play Blog</title>
+<link rel="stylesheet" href="css/style2.css" />
+<script src="plugins\jquery-3.2.1.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#a').hide();
+	$('#push,#menu').click(function(){
+		$('#a').slideToggle();
+	});
+});
+
+</script>
+</head>
+<body>
+
+ <header>
+   <nav id="nav1">
+    <img src="Image\menu.png"style="width:2.5rem;height:2rem;float:left;
+margin-top:0;margin-left:2rem;" id="menu"/>
+    <!--<input type="button" value="Menu" id="push"/> -->
+   <ul id="a">
+   <li id="aa"><a href="">Home</a></li>
+   <li><a href="">Suits</a></li>
+   <li><a href="">Shoes</a></li>
+   <li><a href="">Dress</a></li>
+   <li><a href="">T-shirt</a></li>
+   <li><a href="">Coat</a></li>
+   </ul>
+   </nav>
+ <div id="logo">
+ <img src="" />
+ </div>  
+ <nav id="nav2">
+<img src="Image\yonghu.png" alt="头像 " id="yh"/> 
+<ul id="b">
+ <li><a>UserName</a></li>
+<li><a href="">Login</a></li>
+<li><a href="">Register</a></li>
+ </ul>
+ </nav>
+
+ <div style="padding:1%;width:98%;height:30rem;clear:both;position:relative; "  class="img-div">
+  <img src="Image\ig1.JPG"  /> 
+ <form action="validate.jsp">
+ <div class="enter"> <label>UserName</label><input class="text" type="text" placeholder="Input Your Account"><br/></div>
+ <div class="enter"> <label>Password</label><input class="text" type="password" placeholder="Input Your Password"></div>
+  <input id="login" type="submit" value="Login" />
+  <input id="regi" type="button" value="Register" />
+  </form>
+  </div>
+
+ 
+ </header>
+</body>
+</html>

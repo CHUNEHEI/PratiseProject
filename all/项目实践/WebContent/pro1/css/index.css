@@ -1,0 +1,236 @@
+html,body{padding: 0;margin: 0;font-size: 16px;
+    background: rgba(216,239,218,0.2);
+    font-family: Arial, Helvetica, sans-serif;
+}
+input,button,a { 
+  outline:0 none !important; 
+}/*取消选中是虚线框*/ 
+
+/*header*/
+#space{
+    position:fixed;width:100%;height:4em;
+    background: white;z-index: 3;
+}
+#head img{
+    position: fixed;
+}
+#headImg{
+    width:55%;left:0;right:0;margin:auto;z-index: -1;
+}
+#headImg1{
+    width:45%;top:16em;left:1em;z-index: -2;
+}
+#headImg2{
+    width:50%;top:10em;right:0em;z-index: -1;
+}
+/*#searchDiv{text-align:center;}*/
+#searchDiv span{position: fixed;z-index: 99;}
+#search{
+    vertical-align: baseline;width:20em;height:3em;margin-top:1em;margin-bottom: 0em;
+    box-shadow: 4px 4px 12px #a6a6a6;border-radius: 1.5em;text-indent: 12px;/*缩进*/
+    visibility: hidden;
+}
+
+#searchIcon{
+    cursor: pointer;margin-left:1.5em;
+    vertical-align: middle;width:2em;height: auto
+}
+#searchIcon:hover{
+    transform: scale(1.1);
+}
+#showRBtn{
+    z-index: 3;position: fixed;cursor: pointer;
+    border-radius:1.5em;width:2.5em;height:auto; 
+    top:1em;right:1rem ;
+    /*z-index: 100;*/
+}
+#showRBtn:hover{
+    transform: scale(1.1) rotate(45deg);
+}
+
+/*article*/
+
+/*left*/
+#left{
+    position: relative;top:4em;
+    width: 80%;height:auto;background:rgba(176,221,208,0.4);
+    margin: 0 auto;padding:0;
+}
+#bigLogo{
+    position: absolute;top:3.5em;left:4em;
+    z-index: 3;font-size:4.5em;
+}
+#cir{position:absolute;width:800px;height:900px;
+    border: 1px double white;z-index: 2;
+left:150px;top:-150px;border-radius: 1000px;}
+.bar{
+    position:absolute;background:white;
+    vertical-align: bottom;height: .05em;
+    width: 3.8em;border-radius: 1.5em;
+    left:2em;top:-.5em; 
+}
+.para{
+    position: absolute;left: 390px;top:380px;
+    z-index: 2;color: #d5d5d5;letter-spacing: .2em;
+    font-size: 1.5em; 
+}
+#bigLogo label{color:white;}
+#bannerDiv{position: relative;text-align: center;}
+#banner{width: 75%;height: auto;border-radius: 20em}
+#main{padding:1em 1.2em;}
+#iframe{border:0px;padding:0px;margin:0px auto;}
+.content{
+    margin: 0 auto;text-align: center;
+    width:100%;height:auto;
+}
+/*#head{background-position:center;
+   width:100%; background-image: url('../src/night.jpg');
+   background-size: 50%;background-position: center;
+   background-repeat:no-repeat ;height:10rem}*/
+#content1_1,#content1_3{ 
+   margin:0 auto;
+    background: #e3e3ea;
+}
+.ctntil{
+    padding:2em;
+}
+.ctntil h1{
+    margin:0;font-size:2em;font-weight: bold;
+    letter-spacing: 2px;
+}
+hr{
+    border:none;margin-top: 1em;
+    width:4em;height: 0.2em;background:#82829f;
+}
+#hr2{background: #ffa4a6}
+#hr3{background: #60b9bb}
+.ctntil span{color:#727272}
+.infoBtn{
+    border:black solid 1px;cursor: pointer;
+    font-weight: bold;background: white;
+    border-radius:5em ;width: 7.5em;height: 3.5em;
+    margin-bottom: 1.5em;font-size: 15px;
+}
+.infoBtn:hover{
+    background: #404440;color:white;border: none ;
+}
+#content1_2{ 
+   margin:0 auto;
+    background: #ffdbdc;
+}
+#articleLink ul{
+    width: 40%;height: auto;margin-left: 1em;
+    /*border: 1px solid red;*/display: inline-block;
+}
+#articleLink ul, #articleLink ul li {
+    color: #3c8668;
+   list-style: square;line-height: 2.5em;
+   text-align: left;letter-spacing: 1.5px;
+}
+#ibtn3{
+    margin-top:5em;
+}
+.lab{
+    margin-left: 5em;
+    color: #3c8668;
+}
+
+/*right*/
+#right{
+    position: fixed;display:none; height:33em;
+    width:8.2em; background:rgba(255,255,255,0.8);top:0;right:0;
+    border-bottom-left-radius:150px;border-top-left-radius: 100px;
+    border: 1px dotted RGBA(12,12,12,.2);border-right: 0;
+    z-index: 3;box-shadow:-1px 3px 14px 0 #727272 ;
+    /*水平 垂直偏移量 模糊值 边框*/
+}
+#ulList, #ulList li{
+    list-style-type: none;color:black;
+    line-height:2.2em; font-size:16px;
+    text-align: left;cursor: pointer;
+    font-weight:bold;
+}
+
+#menuDiv li:hover{
+    border-bottom: 1px dashed black; color:#6b6967
+}
+#cusInfo,#logoDiv{
+    text-align: center;margin:0 auto;width:100%;
+}
+#cusImg{ 
+    padding:0;margin:0.5em auto;margin-top:1em;display: block;border-radius: 10em;
+    width: 3.5em;height: auto;cursor: pointer;
+}
+#cusName{
+    color:black;font-weight: bold;letter-spacing: 2px;
+}
+#logoImg{ 
+    margin-top:3.5em;padding:8px;width:5em;
+    height: auto;border: 1px solid black;
+    border-radius: 15px;cursor: pointer;
+}
+
+/*banner*/
+img{
+    width: 1080px;height:700px;margin:0 auto
+}
+#bannerList{
+    width:4320px;height:700px;top:-100px;
+   left: -1080px; z-index: 1;position: absolute;
+}
+#bannerList img{
+    float: left
+}
+ #container {
+    position: relative;width: 100%; height: 600px;
+    border: .5px solid white; overflow: hidden;
+    margin: 0 auto;padding:0;
+        }
+.arrow{
+    display: none;position:absolute;color:rgba(255,255, 255,.8);font-size:4em; 
+    z-index: 2;top:280px;
+}
+#container:hover .arrow{
+    display: inline;background: RGBA(12,12,12,.2);
+}
+#prev{
+    left:10px;
+}
+#next{
+    right: 10px;
+}
+a{
+    text-decoration: none
+} 
+#navigator {
+ position: absolute;left: 420px; bottom: 20px;
+ z-index: 2;height: 10px; width: 100px;
+        }
+#navigator span {
+    float: left;margin-right: 5px;width: 10px;height: 10px;
+    border: 1px solid whitesmoke;;border-radius: 50%;background: #464457; cursor: pointer;
+}
+        
+ #navigator .on {
+     background: #222c31;
+}
+.sub-container{overflow: hidden;}
+.sub-content{width:1080px; }
+.sub-content div{float:left;width:220px;height:280px;margin:50px 25px}
+.sub-content div img{width:220px;height:220px;margin-bottom: 10px}
+.sub-content div label{color:rgb(78, 71, 72) ;font-weight: bold;line-height: 18px;font-size: 14px}
+#prev1{top:880px;left:22px;}
+#next1{top:880px;right:22px;}
+.arrow1{display: none;color:rgba(255,255, 255,.8);font-size:4em;position:absolute;}
+.sub-container:hover .arrow1{
+    display: inline;background: RGBA(12,12,12,.2);
+}
+#sub-content1 div img{border-radius: 110px}
+.img:hover{transform: scale(1.1);transition: all 0.3s ease-in-out}
+
+.sys{
+     box-shadow:1px 1px 12px #e97076  ;
+}
+.sys:hover{cursor: pointer}
+#skip{position:absolute;top:500px;z-index: 2;margin: 0 45%}
+#kb{display: none}

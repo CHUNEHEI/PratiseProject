@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CP-Snack</title>
+<link href="..\plugins\bootstrap.css" rel="stylesheet" />
+<link href="..\css\page2.css" rel="stylesheet" />
+<script>
+function calTotal(){
+	switch(document.getElementById("type").value)
+	  { case "甜甜圈": document.getElementById("price").value="20";
+	    break;
+	  case "甜筒": document.getElementById("price").value="15";
+	  break;
+	  case "曲奇": document.getElementById("price").value="30";
+	  break;
+	  
+	  }
+  var tsp=parseFloat(document.getElementById("tsp").value);
+  var amount=document.getElementById("amount").value;
+  var price=document.getElementById("price").value;
+  var subTotal=price*amount;
+ document.getElementById("total").value=subTotal+tsp;
+  //document.getElementById("total").value=price*amount+tsp;
+  
+     }
+     function validate(){
+    	
+    	 if(document.getElementById("amount").value==""||isNaN(document.getElementById("amount").value)){
+    		// alert("plz fix the form with num only~");
+    		//var ae=document.getElementById("pao");
+    		//var af=document.getElementById("amount1");
+    		//document.getElementById("tab").insertAfter(ae,af);
+    		 document.getElementById("tips").removeAttribute("style");
+    		 document.getElementById("total").value="";
+    	
+    	 }
+    	 else {
+    		 document.getElementById("tips").style="display:none";
+    		 document.getElementById("form_A").submit();
+    	 }
+     }
+  </script>
+</head>
+<body>
+<header>
+
+<nav class="nav nav-masthead">
+<a class="nav-link active" href="#">HEA爆地图</a>
+<a class="nav-link " href="#">囤货TIPS</a>
+<a class="nav-link " href="#">吃货攻略</a>
+</nav>
+</header>
+
+<article>
+<div id="article">
+<div id="text">
+<h1><strong>What's My Favorite</strong></h1>
+<p>Do you get crazy for snacks? If said you do, there are many 
+candy and snakes which would be your best choice. Welcome to the <strong><a style="color:white" href="..\index.html">CAN PAGE!</a></strong></p>
+</div>
+<form id="form_A" action="page1.jsp" method="get">
+<table id="tab">
+
+<tr>
+<td>品种</td>
+<td><select onChange="calTotal()" id="type"><option selected>甜甜圈</option><option>甜筒</option><option>曲奇</option></select></td>
+</tr>
+<tr>
+<td id="amount1">数量(个)</td>
+<td><input id="amount" placeholder="amount" onChange="calTotal()"></td>
+</tr>
+<tr id="tips" style="display:none">
+<td></td>
+<td>请输入数量(num only)</td>
+</tr>
+<tr>
+<td>单价(￥)</td>
+<td><input id="price" placeholder="price" onChange="calTotal()" value="20" disabled ></td>
+</tr>
+<tr>
+<td>运费(￥)</td>
+<td><input id="tsp" value="0.5" disabled></td>
+</tr>
+<tr>
+<td>总价(￥)</td>
+<td><input id="total" placeholder="total" onChange="calTotal();"></td>
+</tr>
+<tr style="height:1rem;"></tr>
+<tr>
+<td></td>
+<td>
+<button type="button" class="btn btn-light" onClick="validate()">确认</button>
+<button type="reset" id="btn2" class="btn btn-light" >重置</button>
+</td>
+</tr>
+
+</table>
+</form>
+</div>
+
+</article>
+</body>
+</html>

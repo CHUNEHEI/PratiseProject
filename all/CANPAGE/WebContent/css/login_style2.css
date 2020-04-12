@@ -1,0 +1,11 @@
+.a{width:60%;margin:2rem auto}
+body{background-color:#e3ebfd;}
+.navbar{width:100%;margin:0 auto;background-color:#408080;}
+ul>li{fontsize:5rem}
+ul>li a:hover{background-color:white;color:grey !important;}
+ul>li a:focus{background-color:white;color:grey !important;}
+ul>li{margin-top:2px;padding-right:1%;}
+.btn{margin:7% 40%}
+.btn1{margin:0;color:grey;width:4.8rem;text-align:center;}
+.btn1:hover{cursor:pointer;}
+.nav-link{color:white!important;}

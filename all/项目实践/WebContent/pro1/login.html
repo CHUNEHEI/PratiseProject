@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>初生摄影平台</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+      
+        <link rel="stylesheet" href="css/style.css">
+
+        <style>
+            #span{
+                position: fixed;
+                left:770px;top:288px;
+                color:rgb(228, 225, 210);
+                width:50px;
+                line-height: 16px;
+                font-size: 14px;
+                outline: none;
+                cursor: pointer;
+            }
+            #span:hover{color:black;}
+        </style> 
+
+    </head>
+
+    <body style="background:pink;">  
+
+        <div class="page-container">
+            <h1 style="letter-spacing: 5px">初生摄影平台</h1>
+            <form action="loginServlet" method="post">
+               <input id="username" type="text" name="username" class="username" placeholder="Username" >
+               <input id="password" type="password" name="password" class="password" placeholder="Password"  ><span id="span">show</span>
+                <button id="submit" type="submit">login</button>
+               
+                
+                Not register ? <a href="register.html" >click here </a>
+              
+                
+                <div class="error"><span>+</span></div>
+            </form>
+            <div class="connect">
+            
+              
+            </div>
+        </div>
+      
+        
+        <script>
+        var input=document.getElementById("password");
+        var span=document.getElementById("span");
+        span.onclick=function(){
+          if(input.type=="password"){
+             span.innerHTML="hide";
+             input.type="text";}
+            else{ input.type="password";
+            span.innerHTML="show";}
+          }
+        </script> 
+      
+     
+    
+
+    </body>
+
+</html>
+

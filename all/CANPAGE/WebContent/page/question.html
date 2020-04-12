@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PDP性格测试</title>
+
+<style>
+html,body{font-family: 微软雅黑;font-size: 1rem;}
+.article h1{text-align: center;color:#006699;}
+.intro{width:75%;margin:2em auto}
+.questionCss span{display:block;line-height:20px;margin:5px;
+font-size:18px;font-weight: bold;margin-bottom: 0.7em}
+.question{
+margin:0 auto;
+text-align:center;
+width:100%;
+position:relative;
+}
+.questionCss{
+margin:0 auto;
+height:70px;
+width:75%;
+vertical-align:middle;
+text-align:center;
+background: white;
+border:1px pink solid;
+margin-top:1em;
+}
+input.one,.two,.three,.four,.five{margin-right:1em}
+.displayScore{
+display:none;
+}
+table{text-align:center;margin:2em auto;}
+.first{text-align:left}
+#submit,#reset{margin-top:1em;width:8em;height:2.5em;width:8em;height:2.5em;font-family:微软雅黑;font-size:0.8rem;
+background-color: #6699cc;color:white;border-radius:66px;}
+#check1,#redo{width:8em;height:2.5em;font-family:微软雅黑;font-size:0.8rem;background-color: #cc6666;color:white;
+border-radius:66px;margin-bottom:1em;}
+#result{width:70%;margin:2em auto;line-height:1.8em;font-size:1em;display:none;}
+#result>div{margin-top:1em;text-align: justify;}
+.ldnl{font-size:0.95em;line-height: 1.5em;margin-top:2em}
+
+</style>
+<script>
+/*
+var questionDiv=document.getElementsByClassName("questionCss");
+var getcn=function(){
+	for(i=0;i<questionDiv.length;i++){
+	var qesDiv+"i"=document.getElmentsByClassName("question"+i);	
+	}
+	alert(qesDiv.length);
+}*/
+
+
+function getRadioBoxValue() { 
+	var ele=document.getElementsByClassName("questionCss");
+	for(j=1;j<ele.length+1;j++){
+       var obj = document.getElementsByName("q"+j); //这个是以标签的name来取控件
+       for(i=0; i<obj.length;i++)  {
+          if(obj[i].checked)  { 
+            document.getElementById("showScore"+j).value=obj[i].value; 
+       	
+          } 
+                     }                       
+        } 
+	  
+     }
+     
+ function calTotal(){
+	  var num5=document.getElementById("showScore"+5).value;
+	  var num10=document.getElementById("showScore"+10).value;
+	  var num14=document.getElementById("showScore"+14).value;
+	  var num18=document.getElementById("showScore"+18).value;
+	  var num24=document.getElementById("showScore"+24).value;
+	  var num30=document.getElementById("showScore"+30).value;
+	  var lh=parseInt(num5)+parseInt(num10)+parseInt(num14)+parseInt(num18)+parseInt(num24)+parseInt(num30);
+       document.getElementById("total1").value=lh;
+   //  3、6、13、20、22、29
+  	 var num3=document.getElementById("showScore"+3).value;
+  	 var num6=document.getElementById("showScore"+6).value;
+  	 var num13=document.getElementById("showScore"+13).value;
+  	 var num20=document.getElementById("showScore"+20).value;
+  	 var num22=document.getElementById("showScore"+22).value;
+  	 var num29=document.getElementById("showScore"+29).value;
+  	 var kq=parseInt(num3)+parseInt(num6)+parseInt(num13)+parseInt(num20)+parseInt(num22)+parseInt(num29);
+  	  document.getElementById("total2").value=kq;
+  	//2、8、15、17、25、28
+	  var num2=document.getElementById("showScore"+2).value;
+	  var num8=document.getElementById("showScore"+8).value;
+	  var num15=document.getElementById("showScore"+15).value;
+	  var num17=document.getElementById("showScore"+17).value;
+	  var num25=document.getElementById("showScore"+25).value;
+	  var num28=document.getElementById("showScore"+28).value;
+	  var kl=parseInt(num2)+parseInt(num8)+parseInt(num15)+parseInt(num17)+parseInt(num25)+parseInt(num28);
+	   document.getElementById("total3").value=kl;
+	   //1、7、11、16、21、26
+	    var num1=document.getElementById("showScore"+1).value;
+	  var num7=document.getElementById("showScore"+7).value;
+	  var num11=document.getElementById("showScore"+11).value;
+	  var num16=document.getElementById("showScore"+16).value;
+	  var num21=document.getElementById("showScore"+21).value;
+	  var num26=document.getElementById("showScore"+26).value;
+	  var mty=parseInt(num1)+parseInt(num7)+parseInt(num11)+parseInt(num16)+parseInt(num21)+parseInt(num26);
+	   document.getElementById("total4").value=mty;
+	 //4、9、12、19、23、27
+	   var num4=document.getElementById("showScore"+4).value;
+		  var num9=document.getElementById("showScore"+9).value;
+		  var num12=document.getElementById("showScore"+12).value;
+		  var num19=document.getElementById("showScore"+19).value;
+		  var num23=document.getElementById("showScore"+23).value;
+		  var num27=document.getElementById("showScore"+27).value;
+		  var bsl=parseInt(num4)+parseInt(num9)+parseInt(num12)+parseInt(num19)+parseInt(num23)+parseInt(num27);
+	      document.getElementById("total5").value=bsl;
+	      document.getElementById("result").style.display="block";
+  }
+  function redoHidden(){
+	 document.getElementById("result").style.display="none";
+	 document.getElementById("total1").value=null;
+	 document.getElementById("total2").value=null;
+	 document.getElementById("total3").value=null;
+	 document.getElementById("total4").value=null;
+	 document.getElementById("total5").value=null;
+}
+
+</script>
+</head>
+<body>
+<header>
+
+</header>
+
+<div class="article">
+
+
+<h1>PDP性格测试</h1>
+<div class="intro">
+<p style="color:#555555"><strong style="font-size:1.5em;color:#006699">PDP</strong>的全称是（<strong style="color:#006699">行为特质动态衡量系统</strong>），它是一个用来衡量个人的行为特质、活力、动能、压力、精力及能量变动情况的系统。
+PDP是一项行为风格测试的工具，行为风格是指一个人天赋中最擅长的做事风格，并且区分了天生本我，工作中的我记他人眼中的我。<br>
+PDP根据人的天生特质，将人群分为五种类型，包括：<strong style="color:#444444">支配型、外向型、耐心型、精确型、整合型</strong>
+为了将这五种类型的个性特质形象化，根据其各自的特点，这五类人群又分别被称为<strong style="color:#444444">“老虎”、“孔雀”、“考拉”、“猫头鹰”、“变色龙”</strong>。
+PDP是一个进行人才管理的专业系统，能够帮助人们认识与管理自己，帮助组织做到“人尽其才”。</p>
+
+</div>
+<div class="rule"></div>
+<div class="question">
+<form>
+
+<div id="question1" class="questionCss">
+<span>1.你做事是一个值得信赖的人吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q1" type="radio" >&nbsp;
+<label>比较同意</label><input class="four" value="4" name="q1" type="radio">&nbsp;
+<label>差不多</label><input class="three" value="3" name="q1" type="radio">&nbsp;
+<label>有一点同意</label><input class="two" value="2" name="q1" type="radio">&nbsp;
+<label>不同意</label><input class="one" name="q1" value="1" type="radio">&nbsp;
+</div>
+<div id="question2" class="questionCss">
+<span>2.你个性温和吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q2" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q2" type="radio">
+<label>差不多</label><input class="three" value="3" name="q2" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q2" type="radio">
+<label>不同意</label><input class="one" name="q2" value="1" type="radio">
+</div>
+<div id="question3" class="questionCss">
+<span>3.你有活力吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q3" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q3" type="radio">
+<label>差不多</label><input class="three" value="3" name="q3" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q3" type="radio">
+<label>不同意</label><input class="one" name="q3" value="1" type="radio">
+</div>
+<div id="question4" class="questionCss">
+<span>4.你善解人意吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q4" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q4" type="radio">
+<label>差不多</label><input class="three" value="3" name="q4" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q4" type="radio">
+<label>不同意</label><input class="one" name="q4" value="1" type="radio">
+</div>
+<div id="question5" class="questionCss">
+<span>5.你独立吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q5" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q5" type="radio">
+<label>差不多</label><input class="three" value="3" name="q5" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q5" type="radio">
+<label>不同意</label><input class="one" name="q5" value="1" type="radio">
+</div>
+<div id="question6" class="questionCss">
+<span>6.你受人爱戴吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q6" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q6" type="radio">
+<label>差不多</label><input class="three" value="3" name="q6" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q6" type="radio">
+<label>不同意</label><input class="one" name="q6" value="1" type="radio">
+</div>
+<div id="question7" class="questionCss">
+<span> 7.做事认真且正直吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q7" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q7" type="radio">
+<label>差不多</label><input class="three" value="3" name="q7" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q7" type="radio">
+<label>不同意</label><input class="one" name="q7" value="1" type="radio">
+</div>
+<div id="question8" class="questionCss">
+<span> 8.你富有同情心吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q8" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q8" type="radio">
+<label>差不多</label><input class="three" value="3" name="q8" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q8" type="radio">
+<label>不同意</label><input class="one" name="q8" value="1" type="radio">
+</div>
+<div id="question9" class="questionCss">
+<span>9.你有说服力吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q9" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q9" type="radio">
+<label>差不多</label><input class="three" value="3" name="q9" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q9" type="radio">
+<label>不同意</label><input class="one" name="q9" value="1" type="radio">
+</div>
+<div id="question10" class="questionCss">
+<span>10.你大胆吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q10" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q10" type="radio">
+<label>差不多</label><input class="three" value="3" name="q10" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q10" type="radio">
+<label>不同意</label><input class="one" name="q10" value="1" type="radio">
+</div>
+<div id="question11" class="questionCss">
+<span>11.你精确吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q11" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q11" type="radio">
+<label>差不多</label><input class="three" value="3" name="q11" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q11" type="radio">
+<label>不同意</label><input class="one" name="q11" value="1" type="radio">
+</div>
+<div id="question11" class="questionCss">
+<span>12.你适应能力强吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q12" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q12" type="radio">
+<label>差不多</label><input class="three" value="3" name="q12" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q12" type="radio">
+<label>不同意</label><input class="one" name="q12" value="1" type="radio">
+</div>
+<div id="question13" class="questionCss">
+<span>13.你组织能力好吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q13" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q13" type="radio">
+<label>差不多</label><input class="three" value="3" name="q13" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q13" type="radio">
+<label>不同意</label><input class="one" name="q13" value="1" type="radio">
+</div>
+<div id="question14" class="questionCss">
+<span>14.你是否积极主动？ 
+</span>
+<label>非常同意</label><input class="five" value="5" name="q14" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q14" type="radio">
+<label>差不多</label><input class="three" value="3" name="q14" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q14" type="radio">
+<label>不同意</label><input class="one" name="q14" value="1" type="radio">
+</div>
+<div id="question15" class="questionCss">
+<span>15.你害羞吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q15" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q15" type="radio">
+<label>差不多</label><input class="three" value="3" name="q15" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q15" type="radio">
+<label>不同意</label><input class="one" name="q15" value="1" type="radio">
+</div>
+<div id="question16" class="questionCss">
+<span>16.你强势吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q16" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q16" type="radio">
+<label>差不多</label><input class="three" value="3" name="q16" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q16" type="radio">
+<label>不同意</label><input class="one" name="q16" value="1" type="radio">
+</div>
+<div id="question17" class="questionCss">
+<span>17.你镇定吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q17" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q17" type="radio">
+<label>差不多</label><input class="three" value="3" name="q17" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q17" type="radio">
+<label>不同意</label><input class="one" name="q17" value="1" type="radio">
+</div>
+<div id="question18" class="questionCss">
+<span>18.你勇于学习吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q18" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q18" type="radio">
+<label>差不多</label><input class="three" value="3" name="q18" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q18" type="radio">
+<label>不同意</label><input class="one" name="q18" value="1" type="radio">
+</div>
+<div id="question19" class="questionCss">
+<span>19.你反应快吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q19" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q19" type="radio">
+<label>差不多</label><input class="three" value="3" name="q19" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q19" type="radio">
+<label>不同意</label><input class="one" name="q19" value="1" type="radio">
+</div>
+<div id="question20" class="questionCss">
+<span>20.你外向吗？ 
+</span>
+<label>非常同意</label><input class="five" value="5" name="q20" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q20" type="radio">
+<label>差不多</label><input class="three" value="3" name="q20" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q20" type="radio">
+<label>不同意</label><input class="one" name="q20" value="1" type="radio">
+</div>
+<div id="question21" class="questionCss">
+<span>21.你注意细节吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q21" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q21" type="radio">
+<label>差不多</label><input class="three" value="3" name="q21" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q21" type="radio">
+<label>不同意</label><input class="one" name="q21" value="1" type="radio">
+</div>
+
+<div id="question22" class="questionCss">
+<span>22.你爱说话吗？ 
+</span>
+<label>非常同意</label><input class="five" value="5" name="q22" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q22" type="radio">
+<label>差不多</label><input class="three" value="3" name="q22" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q22" type="radio">
+<label>不同意</label><input class="one" name="q22" value="1" type="radio">
+</div>
+<div id="question23" class="questionCss">
+<span>23.你的协调能力好吗？ 
+</span>
+<label>非常同意</label><input class="five" value="5" name="q23" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q23" type="radio">
+<label>差不多</label><input class="three" value="3" name="q23" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q23" type="radio">
+<label>不同意</label><input class="one" name="q23" value="1" type="radio">
+</div>
+<div id="question24" class="questionCss">
+<span>24.你勤劳吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q24" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q24" type="radio">
+<label>差不多</label><input class="three" value="3" name="q24" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q24" type="radio">
+<label>不同意</label><input class="one" name="q24" value="1" type="radio">
+</div>
+<div id="question25" class="questionCss">
+<span>25.你慷慨吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q25" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q25" type="radio">
+<label>差不多</label><input class="three" value="3" name="q25" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q25" type="radio">
+<label>不同意</label><input class="one" name="q25" value="1" type="radio">
+</div>
+<div id="question26" class="questionCss">
+<span>26.你小心翼翼吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q26" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q26" type="radio">
+<label>差不多</label><input class="three" value="3" name="q26" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q26" type="radio">
+<label>不同意</label><input class="one" name="q26" value="1" type="radio">
+</div>
+<div id="question27"  class="questionCss">
+<span>27.你令人愉快吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q27" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q27" type="radio">
+<label>差不多</label><input class="three" value="3" name="q27" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q27" type="radio">
+<label>不同意</label><input class="one" name="q27" value="1" type="radio">
+</div>
+<div id="question28" class="questionCss">
+<span>28.你传统吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q28" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q28" type="radio">
+<label>差不多</label><input class="three" value="3" name="q28" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q28" type="radio">
+<label>不同意</label><input class="one" name="q28" value="1" type="radio">
+</div>
+<div id="question29" class="questionCss">
+<span>29你亲切吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q29" type="radio">
+<label>比较同意</label><input class="four" value="4" name="q29" type="radio">
+<label>差不多</label><input class="three" value="3" name="q29" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q29" type="radio">
+<label>不同意</label><input class="one" name="q29" value="1" type="radio">
+</div>
+<div id="question30" class="questionCss">
+<span>30.你工作足够有效率吗？
+</span>
+<label>非常同意</label><input class="five" value="5" name="q30" type="radio" >
+<label>比较同意</label><input class="four" value="4" name="q30" type="radio">
+<label>差不多</label><input class="three" value="3" name="q30" type="radio">
+<label>有一点同意</label><input class="two" value="2" name="q30" type="radio">
+<label>不同意</label><input class="one" name="q30" value="1" type="radio">
+</div>
+<button id="reset" type="reset" >重置</button>
+</form>
+<div class="displayScore">
+<span>你的分数是：</span><input class="ss" id="showScore1"  /><span>你的分数是：</span><input id="showScore2" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore3"  /><span>你的分数是：</span><input id="showScore4" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore5"  /><span>你的分数是：</span><input id="showScore6" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore7"  /><span>你的分数是：</span><input id="showScore8" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore9"  /><span>你的分数是：</span><input id="showScore10" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore11"  /><span>你的分数是：</span><input id="showScore12" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore13"  /><span>你的分数是：</span><input id="showScore14" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore15"  /><span>你的分数是：</span><input id="showScore16" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore17"  /><span>你的分数是：</span><input id="showScore18" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore19"  /><span>你的分数是：</span><input id="showScore20" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore21"  /><span>你的分数是：</span><input id="showScore22" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore23"  /><span>你的分数是：</span><input id="showScore24" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore25"  /><span>你的分数是：</span><input id="showScore26" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore27"  /><span>你的分数是：</span><input id="showScore28" class="ss" />
+<span>你的分数是：</span><input class="ss" id="showScore29"  /><span>你的分数是：</span><input id="showScore30" class="ss" />
+</div>
+
+<button id="submit" onclick="getRadioBoxValue()">提交</button><br>
+<p style="text-align: center;font-size: 0.5em;color:grey">(提交后才可点击查看分数喔~！)</p>
+ 
+ <div>
+<table>
+<tr  style="color:#cc9933"><td class="first">
+ 你的“老虎”分数(第5、10、14、18、24、30题)是：
+</td><td><input id="total1" disabled="disabled"/></td></tr>
+<tr  style="color:#FF33cc"><td class="first">
+你的“孔雀”分数(第3、6、13、20、22、29题)是：
+</td><td><input id="total2" disabled="disabled"/></td></tr>
+<tr  style="color:#777777"><td class="first">
+你的“考拉”分数(第2、8、15、17、25、28题)是：
+</td><td><input id="total3" disabled="disabled"/></td></tr>
+<tr  style="color:#996633"><td class="first">
+ 你的“猫头鹰”分数(第1、7、11、16、21、26题)是：
+</td><td><input id="total4" disabled="disabled"/></td></tr>
+<tr  style="color:#33cc99"><td class="first">
+你的“变色龙”分数(第4、9、12、19、23、27题)是：
+</td><td><input id="total5" disabled="disabled"/></td></tr>
+
+</table>
+</div>
+<button id="check1" onclick="calTotal()">查看</button><br>
+<button id="redo"  onclick="redoHidden()">重测</button>
+</div>
+<div id="result">
+假若你有某一项分远远高于其它四项，你就是典型的这种属性，假若你有某两项分大大超过其它三项，你是这两种动物的综合；假若你各项分数都比较接近，恭喜你，你是一个面面俱到近似完美性格的人；假若你有某一项分数特别偏低的话，想提高自己就需要在那一种动物属性的加强上下工夫了。我们就来逐一分析一下各种迥然不同的“动物”吧！
+<div id="laohu">
+<strong style="font-size:1.2em;color:#cc9933">
+■老虎型 (支配型Dominance) 占人口15 %</strong><br>
+“老虎”一般企图心强烈，喜欢冒险，个性积极，竞争力强，凡事喜欢掌控全局发号施令，不喜欢维持现状，但行动力强，目标一经确立便会全力以赴。它的缺点是在决策上较易流于专断，不易妥协，故较容易与人发生争执摩擦。如果下属中有“老虎”要给予他更多的责任，他会觉得自己有价值，布置工作时注意结果导向，如果上司是老虎则要在他面前展示自信果断的一面，同时避免在公众场合与他唱反调。中外名人中毛泽东、朱熔基以及前英国首相撒切尔夫人为较典型的老虎型，德国为老虎型人数最多的国家。
+<br><strong>个性特点：</strong>有自信，够权威，决断力高，竞争性强，胸怀大志，喜欢评估。企图心强烈，喜欢冒险，个性积极，竞争力强，有对抗性。
+<br><strong>优点：</strong>善于控制局面并能果断地作出决定的能力；用这一类型工作方式的人成就非凡。
+<br><strong>缺点：</strong>当感到压力时，这类人就会太重视迅速的完成工作，就容易忽视细节，他们可能不顾自己和别人的情感。由于他们要求过高，加之好胜的天性，有时会成为工作狂。
+<br><strong>老虎型工作风格的主要行为：</strong>交谈时进行直接的目光接触；有目的性且能迅速行动；说话快速且具有说服力；运用直截了当的实际性语言；办公室挂有日历、计划要点。<br>
+老虎型，具备高支配型特质，竞争力强、好胜心盛、积极自信，是个有决断力的组织者。他胸怀大志、勇于冒险、分析敏锐，主动积极且具极为强烈的企图心，只要认定目标就勇往直前，不畏反抗与攻讦，誓要取得目标的家伙。<br>
+老虎型领导人都倾向以权威作风来进行决策，当其部属者除要高度服从外，也要有冒险犯难的勇气，为其杀敌闯关。<br>
+老虎型族人最适合开创性与改革性的工作，在开拓市场的时代或需要执行改革的环境中，最容易有出色的表现。<br>
+<br>
+宏碁集团的施振荣和前美国GE总裁韦尔奇 (Jack Welch)等，都是老虎型领导人。
+</div>
+<div id="kongque">
+<strong style="font-size:1.2em;color:#FF33cc">
+■孔雀型(表达型Extroversion) 占人口15%</strong><br>
+“孔雀”热情洋溢，好交朋友，口才流畅，重视形象，擅于人际关系的建立，富同情心，最适合人际导向的工作。缺点是容易过于乐观，往往无法估计细节，在执行力度上需要高专业的技术精英来配合。对孔雀要以鼓励为主给他表现机会保持他的工作激情，但也要注意他的情绪化和防止细节失误。孙中山、克林顿、里根、戈尔巴乔夫都是这一类型的人，美国是孔雀型人最多的国家。
+<br><strong>个性特点：</strong>很热心，够乐观，口才流畅，好交朋友，风度翩翩，诚恳热心。热情洋溢、好交朋友、口才流畅、个性乐观、表现欲强。
+<br><strong>优点：</strong>此类型的人生性活泼。能够使人兴奋，他们高效地工作，善于建立同盟或搞好关系来实现目标。他们很适合需要当众表现、引人注目、态度公开的工作。
+<br><strong>缺点：</strong>因其跳跃性的思考模式，常无法顾及细节以及对事情的完成执着度。
+<br><strong>孔雀型工作风格的主要行为：</strong>运用快速的手势；面部表情特别丰富；运用有说服力的语言；<br>
+工作空间里充满了各种能鼓舞人心的东西。<br>
+孔雀型具有高度的表达能力，他的社交能力极强，有流畅无碍的口才和热情幽默的风度，在团体或社群中容易广结善缘、建立知名度。孔雀型领导人天生具备乐观与和善的性格，有真诚的同情心和感染他人的能力，在以团队合作为主的工作环境中，会有最好的表现。<br>
+ 孔雀型领导人在任何团体内，都是人缘最好的人和最受欢迎的人，是最能吹起领导号角的人物。当孔雀型领导人的部属者，除要能乐于在团队中工作外，还要对其领导谦逊得体，不露锋、不出头，把一切成功光华都让与领导。孔雀型领导人，不宜有个老虎型领导人当二把手或部属。孔雀型的人是天生的演说家，他们喜欢描绘远景，喜欢塑造品牌，喜欢传播和宣传。有孔雀型的人的地方就充满着欢声笑语，在一个聚会场合，如果你看见哪一堆人里热闹，那堆人里一定会有孔雀型的人。孔雀型的人喜欢被别人认可和赞扬，喜欢鲜花和掌声，这些会激励他们做得更好。如果一旦没有了鲜花和掌声，孔雀型的人会生活得很难受，孔雀型的人不喜欢享受寂寞，不喜欢繁琐的事务性的工作。孔雀型的人适合做培训、宣传、品牌塑造和推广、销售类的工作。呵呵，孔雀型的人最多的国家是美国，所以美国的电影才会与别的国家不同，NBA才与一般的蓝球队不同.反之，若老虎型领导人有个孔雀型的人甘愿当其二把手，则会是最佳搭配。孔雀型的人天生具有鼓吹理想的特质，在推动新思维、执行某种新使命或推广某项宣传等任务的工作中，都会有极出色的表现。他们在开发市场或创建产业的工作环境中，最能发挥其所长。<br>
+有台湾企管大师之称的石滋宜博士，就是属于孔雀型的人。
+</div>
+<div id="kaola">
+<strong style="font-size:1.2em;color:#777777">
+■考拉型 (耐心型Pace/Patience) 占人口20 %</strong><br>
+“考拉”属于行事稳健，不会夸张强调平实的人，性情平和对人不喜欢制造麻烦，不兴风作浪，温和善良，在别人眼中常让人误以为是懒散不积极，但只要决心投入，绝对是“路遥知马力”的最佳典型。对考拉要多给予关注和温柔想方设法挖掘他们内在的潜力。印度的甘地、蒋经国、宋庆龄都是此类型的人，一般而言，宗教信仰者都是“考拉”，而中国正是考拉型最多的摇篮。
+<br><strong>个性特点：</strong>很稳定，够敦厚，温和规律，不好冲突。行事稳健、强调平实，有过人的耐力，温和善良。
+<br><strong>优点：</strong>他们对其他人的感情很敏感，这使他们在集体环境中左右逢源。
+<br><strong>缺点：</strong>很难坚持自己的观点和迅速做出决定。一般说来，他们不喜欢面对与同事意见不和的局面，他们不愿处理争执。
+<strong>考拉型工作风格的主要行为：</strong>面部表情和蔼可亲；说话慢条斯理，声音轻柔；用赞同型、鼓励性的语言；办公室里摆有家人的照片。<br>
+考拉具有高度的耐心。他敦厚随和，行事冷静自持；生活讲求律规但也随缘从容，面对困境，都能泰然自若。考拉型的人是最好的客服人员，因为考拉型的人忍耐度是最好的。他们是典型的好好先生，是人群中最被大家忽视的一类人。他们不愿意追求太高的目标，不愿意在大众面前露脸，只愿意抱着树干啃那几片树叶。如果说老虎型的人是制造故事的人，孔雀型的人就是讲故事的人，而考拉型的人则是听故事的人。所以孔雀型和考拉型的夫妻是最好的夫妻搭档,一个爱讲一个爱听。  <br>
+      考拉型领导人，适宜当安定内部的管理工作，在需要专业精密技巧的领域，或在气氛和谐且不具赶迫时间表等的职场环境中，他们最能发挥所长。当企业的产品稳踞市场时，考拉型的企业领导人是极佳的总舵手。但当企业还在开拓市场的时候，老虎型或孔雀型的人似乎较占优势。  <br>
+ 或许，勇于开疆辟土的老虎型的人当一哥，配以与人为善的考拉型人当二把手，也是好的搭配。无尾熊型领导人强调无为而治，能与周围的人和睦相处而不树敌，是极佳的人事领导者，适宜在企业改革后，为公司和员工重建互信的工作。又由于他们具有高度的耐心性，有能力为企业赚取长远的利益，或为公司打好永续经营的基础。
+</div>
+<div id="maotou">
+<strong style="font-size:1.2em;color:#996633">
+■猫头鹰型 (精确型Conformity) 占人口20%</strong><br>
+“猫头鹰”传统而保守，分析力强，精确度高是最佳的品质保证者，喜欢把细节条例化，个性拘谨含蓄，谨守分寸忠于职责，但会让人觉得“吹毛求疵”。“猫头鹰”清晰分析道理说服别人很有一套，处事客观合理，只是有时会钻在牛角尖里拔不出来。古代断案如神的包拯（包青天）正是此种类型的典范。日本是这个类型人数较多的国家。
+<br><strong>个性特点：</strong>很传统，注重细节，条理分明，责任感强，重视纪律。保守、分析力强，精准度高，喜欢把细节条例化，个性拘谨含蓄。
+<br><strong>优点：</strong>天生就有爱找出事情真相的习性，因为他们有耐心仔细考察所有的细节并想出合乎逻辑的解决办法。
+<br><strong>缺点：</strong>把事实和精确度置于感情之前，这会被认为是感情冷漠。在压力下，有时为了避免做出结论，他们会分析过度。
+<br><strong>猫头鹰型工作风格的主要行为：</strong>很少有面部表情；动作缓慢；使用精确的语言、注意特殊细节；办公室里挂有图表、统计数字等。
+<br>猫头鹰型具有高度精确的能力，其行事风格，重规则轻情感，事事以规则为准绳，并以之为主导思想。他性格内敛、善于以数字或规条为表达工具而不大擅长以语言来沟通情感或向同事和部属等作指示。<br>他行事讲究条理分明、守纪律重承诺，是个完美主义者
+架构稳定和制度健全的组织最好聘用猫头鹰型的人来当各级领导人，因为猫头鹰型领导人喜欢在安全架构的环境中工作，且其表现也会最好。其行事讲究制度化，事事求依据和规律的习性，极为适合事务机构的行事方式。然而，当企业需要进行目标重整、结构重组、流程变革时，猫头鹰型领导人就会产生迷失，不知如何处事，也不知如何自处。对改革行动，上者会先保持观望的态度，再慢慢适应新的局面；中者也会先保持观望的态度，然后呈辞求去；下者则会结集反对力量，公然表示反对或隐晦地从事反对等的行为。
+<br>又由于猫头鹰型人的行事决策风格，是以数据和规则为其主导思想，其直觉能力和应变能力都偏低，随而创造和创新能力也相对地弱，因而不宜担任需要创建或创新能力的任务。组织完善和发展安定的企业，宜用猫头鹰型企管人当家。
+<br>他们尊重传统、重视架构、事事求据喜爱工作安定的性格，是企业安定力量的来源。然而，由于他们行事讲究制度化，事事求依据和规律，故会将细节条例化，事事检查以求正确无误，甚至为了办事精确，不惜对人吹毛求疵或挑剔别人的错误，以显现自己一切照章办事的态度和求取完美的精神，不易维持团队内的团结精神和凝聚力。 
+</div>
+<div id="bianse">
+<strong style="font-size:1.2em;color:#33cc99">
+■变色龙型 (整合型1/2 Sigma) 占人口30 % </strong><br>
+“变色龙”中庸而不极端，凡事不执着，韧性极强，擅于沟通是天生的谈判家，他们能充分融入各种新环境新文化且适应性良好，在他人眼中会觉得他们“没有个性”，故“没有原则就是最高原则”，他们懂得凡事看情况看场合。前总理周恩来、美国前国务卿基辛格、诸葛亮都是这种类型。香港和台湾是变色龙较多的地区。 
+<br><strong>工作风格的优点：</strong>善于在工作中调整自己的角色去适应环境，具有很好的沟通能力。<br>
+<strong>缺点：</strong>从别人眼中看变色龙族群，会觉得他们较无个性及原则。<br>
+<strong>变色龙型工作风格的主要行为：</strong><br>
+综合老虎、孔雀、考拉、猫头鹰的特质，看似没有凸出个性，但擅长整合内外资；没有强烈的个人意识形态，是他们处事的价值观。变色龙科尔具有高度的应变能力。他性格善变，处事极具弹性，能为了适应环境的要求而调整其决定甚至信念。
+<br>变色龙型的领导人，是支配型、表达型、耐心型、精确型四种特质的综合体，没有突出的个性，擅长整合内外信息，兼容并蓄，不会与人为敌，以中庸之道处世。他们处事圆融，弹性极强，处事处处留有余地，行事绝对不会走偏锋极端，是一个办事让你放心的人物。然而，由于他们以善变为其专长，故做人不会有什么立场或原则，也不会对任何人有效忠的意向，是个冯道式的人物。部属会难以忍受其善变和不讲原则的行为；当他们上司者，则会日夜担心不知何时会遭其「出卖」。
+<br>变色龙型的领导人既没有凸出的个性，对事也没有什么强烈的个人意识型态，事事求中立并倾向站在没有立场的位置，故在冲突的环境中，是个能游走折中的高手。由于他们能密切地融合于各种环境中，他们可以为企业进行对内对外的各种交涉，只要任务确实和目标清楚，他们都能恰如其分地完成其任务。
+</div><br>
+<div class="ldnl">
+<h3  style="color:#333333">领导能力</h3>
+<strong style="color:#cc9933">
+老虎型领导者——果敢的管理者</strong><br>
+老虎型老板办事雷厉风行，管理风格多属于“抓大放小”型，不过，有时候他们比轿容易冲动，情绪变化比轿大，同时，他们厌恶拐弯抹角合浮于表面的逢迎。<br>
+<strong style="color:#444444">应对宝典：</strong><br>
+<strong style="color:#444444">1、摆脱“恐惧感”。</strong><br>在这种类型的老板手下工作，颇有“伴君如伴虎”的战战兢兢。不过，他们通常对事不对人，平等的与他交往，主动与他交流工作中的问题，是与老虎型老板交往的要诀。
+<br><strong style="color:#444444">2、高度追求节果。</strong><br>老虎型老板非常注重工作的节果，当工作出现问题时，跟他解释原因是没有意义的。所以，制定周密的工作计划甚至做两套以上的方案，果断地处理突发问题（甚至采取非常规的方法）以保证实现预定目标，才是“老虎”的好职员。
+<br><strong style="color:#444444">3、高度冒险精神，有意见单独谈。</strong><br>由于具有权威性人格，当其部属除要高度服从外，也要有冒险犯难的勇气，为其杀敌闯关。老虎型老板不喜欢有人当面与他对着干，当然，这并不是说唯唯诺诺就好——因为“老虎”在骨子里面是喜欢有独立见解的属下的。所以，当“老虎”说话时，你要做的是倾听。如果确实与他意见存在轿大分歧的话，不妨选一个单独见面的机会开诚布公地告诉他你的意见。
+</div>
+<div class="ldnl"><strong style="color:#FF33cc">
+孔雀型领导者——优雅的管理者</strong><br>
+孔雀型老板的乐观合卓越的交际能力令人刮目相看，他喜欢未雨愁缪，带领团队齐上阵，所以他很少被一个项目搞的灰头土脸，他的问题在于有时太“假”。
+<br><strong style="color:#444444">应对宝典：</strong><br>
+<strong style="color:#444444">1、不要抢他的风头。</strong><br>除要能乐于在团队中工作外，还要对其领导谦逊疵体，不露锋、不出头，孔雀型老板喜欢万众瞩目的感觉，所以在参加各种活动时，一定掌握好分寸，不要抢他的风头，不可在言语合行为上“抢镜头”，不失时机地附合他，把一切成功光华都让与他。让他感到面子十足是需要你默念的口诀。
+<br><strong style="color:#444444">2、他的“肺腑之言”别当真。</strong><br>孔雀型老板一贯待人廊情，但很多时候这种表示可能只是出于职业习惯，尤其在与他“推心置腹”交流时不要忘记要有所保留，虽然我们说过孔雀型老板并非华而不实，但是，他们的确具有“另外一面”。这是你不得不考虑的一点。
+<br><strong style="color:#444444">3、该开口时就开口。</strong><br>孔雀型老板是“言胜于行”的典型代表，也许这并非都出以本意，但是在一些关系切身利益的问题上，员工一定要学会该开口时就开口主动提出自己的要求，在孔雀型老板的手下工作，很多人都会被他所营造的温暖氛围所笼罩，以至于“抹不开脸”提薪酬或晋升等问题，但是只要多了解这些老板的性格，你就会发觉，这样做不明智的。
+</div>
+<div class="ldnl"><strong style="color:#777777">
+考拉型领导者——本色的管理者</strong><br>
+考拉型老板具有孩子气的一面，不过，对于工作他们是认真合负责的。他们的问题在于有时勇气和敏锐度不足。
+<br><strong style="color:#444444">应对宝典：</strong>
+<br><strong style="color:#444444">1、真诚是第一要旨。</strong><br>考拉型老板在挑选员工时可能更看重人品这一项，他喜欢简单，所以在组建自己的团队时，他会有意识地选择“气味相投”的人。能够真诚地提出建议，责任心比轿强的员工会得到他的欣赏，这样，与无尾熊相处时，你禁可以表现出你隐藏已久的“本色”来。
+<br><strong style="color:#444444">2、进取心强者有更大的发展空间。</strong><br>由于自身的个性原因，考拉型老板也喜欢有不同于自己的员工加入进来，这样，事业心强、更具进取心的员工常常会得到他的倚重。因此，如果你是这样的人，只要你能在工作上独当一面，他都不会在意，从这点上来讲，他是实行“兼容并蓄”的。
+<br><strong style="color:#444444">3、对酬劳合晋升，你得比他更主动。</strong><br>与孔雀型老板不同，考拉型老板对员工的表现往往心知肚明，通常他们也会给予适时的肯定合表彰，但是，当你觉得有必要提出更高的报酬要求希望争取职位时，你最好还是直接告诉他，就如上面所说的一样，有时候他们过于孩子气，可能对员工的需求并不完全明白。
+ </div>
+ <div class="ldnl"><strong style="color:#996633">
+猫头鹰型领导者——严谨的管理者</strong><br>
+有工作狂倾向的猫头鹰型老板，跟工作亲密如恋人，他们对决定的事坚决执行不论遇到什么挫折都能坚持到底，不过，他们过于严谨的个性，会使员工感到难以亲近。
+<br><strong style="color:#444444">应对宝典：</strong>
+<br><strong style="color:#444444">1、恐怕你不得不加班了。</strong><br>对猫头鹰型老板而言，加班是再自然不过的事情了，所以做他的手下，恐怕也难逃“厄运”了，要说服从他不加班几乎是不可能的事情，所以，如果你实在是不想加班，那么最好的方法是：禁快做好你手头茨事情，并且记清楚要提交给他的事务的详情，下班前做好交接，保持手机开机。
+<br><strong style="color:#444444">2、胜在执行。</strong><br>猫头鹰型老板以高度务实著名，所以，要成为他眼中的好职员，首先是努力工作、认真、彻底的执行既定的计划，理性的猫头鹰会冷静的观察，以员工的工作能力合表现而不是言语来作出评价，踏实是他们最为看重的一项品质。
+<br><strong style="color:#444444">3、做到遵规守纪。</strong><br>也许没有哪个老板像猫头鹰先生这样纪律严明，不要跟他分辨说现在很过公司都可以SOHO办公了，所以迟到早退没有多么严重，也不要向他抱怨公司的工作流程有问题——他会反驳你说：如果这样那为什么公司还要设计行政制度？他会把这些看作一个人所具有的品质之一，因为在他看来，一个人只有时时处处严格要求自己，才是一个出色的人。
+ </div>
+ <div class="ldnl"><strong style="color:#33cc99">
+变色龙型领导者—圆融的管理者</strong>
+<br>变色龙型老板共同特征为适娄力及弹性都相当强，擅于整合内外资源，兼容并蓄，以合理化及中庸之道来待人处事。
+<br><strong style="color:#444444;">应对宝典：</strong>
+<br><strong style="color:#444444">1、不妨韬晦。</strong><br>与无尾熊型老板不同，变色龙型老板不太喜欢锋芒太露的员工，他欣赏中庸平合之道，因此，不要建议他加快企业发展的步伐或者投资那些高风险高回报的项目，因为他从未将事业发展看得那么重——能做到中等规模就很好了。
+<br><strong style="color:#444444">2、保持同步。</strong><br>变色龙型老板没有明确茨预定立场，不走极端，柔软性高，更能随机应变。良好的应变能力，时刻保持与他同步距离员工，更能与他相处融洽。
+<br><strong style="color:#444444">3、做事谨慎，坚定目标。</strong><br>与猫头膺型老板不同，变色龙型老板处事圆融，是团队中良好的润滑剂，由于他是四种动物的综合体，办事有点优柔寡断，重大事情要做决定时，变色龙对事求中立没有坚定的立场，这时，需要员工坚定自已的选择，让老板放心。
+</div>
+</div>
+</div>
+<footer style="text-align: center;font-size: 0.5em;color: gray;">CopyRight@CHUENHEI_LEUNG</footer>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Title</title>  
+    <style>  
+        body{  
+            text-align: center;  
+        }  
+        #canvas{  
+            box-shadow: 0 5px 40px black;  
+
+        }  
+    </style>  
+</head>  
+<body>  
+    <canvas id="canvas" width="800" height="500"></canvas>  
+</body>  
+<!--<script src="snake.js"></script>-->  
+<script>  
+    var canvas = document.getElementById("canvas");  
+    var context = canvas.getContext("2d"); //获取画板  
+
+
+    var snake = {  
+        head:null,      //蛇头  
+        snakeArray:null ,//整蛇数组、包括蛇头  
+        direction:"right"//蛇的运动方向，后期根据键盘来定  
+    };  
+
+
+    initSnake() ;//初始化  
+    drawSnake() ;//绘制到页面上  
+
+    var foot = randomCreateFoot(); //得到食物  
+    draw(foot);  
+
+    //让蛇动起来  
+    var t = setInterval(function () {  
+        context.clearRect(0,0,canvas.width,canvas.height);  
+        moveSnake() ;//移动蛇  
+        drawSnake() ;//绘制到页面上  
+        draw(foot) ;  
+    },500);  
+
+
+
+    //蛇移动  
+    function moveSnake() {  
+        /* 蛇移动原理：  
+         *  (1)创建一段，放到蛇头的位置。  
+         *  (2)将蛇头的位置，往前推进20px，到底往哪个方向推进，就需要根据当前按键盘的方向了。  
+         *  (3)如果吃到了食物，就不删除最后一节，否则删除删除最后一节  
+         */  
+        var snakeArray = snake.snakeArray;  
+
+        var modiy = createSectionObj(snake.head.x,snake.head.y,20,20,"gray");  
+
+        snakeArray.splice(1,0,modiy);  
+
+        //修改蛇头  
+        switch (snake.direction){  
+            case "up" :{  
+                snake.head.y = snake.head.y - 20;  
+                break;  
+            }  
+            case "down" :{  
+                snake.head.y = snake.head.y + 20;  
+                break;  
+            }  
+            case "left" :{  
+                snake.head.x = snake.head.x - 20;  
+                break;  
+            }  
+            case "right" :{  
+                snake.head.x = snake.head.x + 20;  
+                break;  
+            }  
+        }  
+
+        if(isEat()){  
+            foot = randomCreateFoot();  
+        }else {  
+            snakeArray.pop();  
+        }  
+        if(isGameOver()){  
+            clearInterval(t);  
+
+            // setTimeout(function () {  
+            //     context.clearRect(0,0,canvas.width,canvas.height);  
+            // },500);  
+
+            alert("game Over :"+snakeArray.length);  
+        }  
+
+    }  
+
+    //随机出现食物  
+    function randomCreateFoot() {  
+        /*  
+         * 蛇的一块一块是宽度和高度是20，所以我们将canvas的宽度和高度分成多块，  
+         * 食物随机出现在某一块上  
+         *  
+         * 既然是随机出现食物，有可能出现的位置刚好是在蛇身上。  
+         * 所以，如果出现在蛇身上，需要重新生成  
+         *  
+         * */  
+        var widthRange = canvas.width / 20 - 1;  
+        var heightRange = canvas.height / 20 - 1;  
+
+        var x = Math.round(Math.random() * widthRange) * 20;  
+        var y = Math.round(Math.random() * heightRange) * 20;  
+
+        return createSectionObj(x,y,20,20,"yellow");  
+
+    }  
+
+
+
+    //初始化 -默认蛇的长度是4  
+    function initSnake() {  
+        var snakeArray = []; //数组的第一个作为蛇头  
+
+        for(var i = 0;i < 4;i++){  
+            var sectionObj = createSectionObj(20*i,0,20,20,"gray");  
+            snakeArray.unshift(sectionObj);  
+        }  
+
+        //蛇头的颜色是红色的  
+        var head = snakeArray[0];  
+        head.color = "red";  
+
+        //将两个后面常用的东西定为属性，方便后面调用  
+        snake.head=  head;  
+        snake.snakeArray = snakeArray;  
+
+    }  
+
+    //创建一节蛇对象  
+    function createSectionObj(x,y,w,h,color) {  
+        return {  
+            x:x,  
+            y:y,  
+            w:w,  
+            h:h,  
+            color:color  
+        }  
+    }  
+
+    //判断是否吃到食物  
+    function isEat() {  
+        if(foot.x == snake.head.x && foot.y == snake.head.y){  
+            return true;  
+        }else {  
+            return false;  
+        }  
+    }  
+
+
+    //绘制蛇  
+    function drawSnake() {  
+        var snakeArray = snake.snakeArray;  
+        for(var i = 0;i< snakeArray.length;i++){  
+            var section = snakeArray[i];  
+            draw(section)  
+        }  
+    }  
+    //绘制一节蛇  
+    function draw(section) {  
+        context.beginPath();  
+        context.fillStyle = section.color;  
+        context.rect(section.x,section.y,section.w,section.h);  
+        context.fill();  
+        context.stroke();  
+    }  
+
+    //判断游戏是否结束  
+    function isGameOver() {  
+        /*  
+         *  (1)头碰到墙壁  
+         *  (2)头碰到自己  
+         * */  
+
+        var canvasWidth = canvas.width;  
+        var canvasHeigh = canvas.height;  
+        var head = snake.head;  
+        if(head.x < 0 || head.y < 0 || head.x > canvasWidth || head.y > canvasHeigh ){  
+            return true;  
+        }  
+
+        for (var i = 1;i<snake.snakeArray.length;i++){  
+            var section = snake.snakeArray[i];  
+            if(section.x == head.x && section.y == head.y){  
+                return true;  
+            }  
+        }  
+
+        return false;  
+    }  
+
+
+    //根据键盘事件，判断蛇头的方向  
+    document.addEventListener("keydown",function (e) {  
+        var keycode = e.keyCode;  
+        /* 40:下,  
+         * 38:上,  
+         * 37:左,  
+         * 39:右；  
+         */  
+        //注意：如果原来蛇头是往右，不能直接向左，不能直接掉头  
+        if(keycode == 40 && snake.direction != "up"){  
+            snake.direction = "down";  
+        }else if(keycode == 38 && snake.direction !="down"){  
+            snake.direction = "up";  
+        }else if(keycode == 39 && snake.direction !="left"){  
+            snake.direction = "right";  
+        }else if(keycode == 37 && snake.direction !="right"){  
+            snake.direction = "left";  
+        }  
+        e.preventDefault();  
+    });  
+
+
+</script>  
+</html> 

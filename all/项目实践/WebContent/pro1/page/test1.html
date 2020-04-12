@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<link>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+
+<!-- <script src="../js/vue.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<style>
+  .non-msg{
+      height: 24px;
+      line-height: 24px;
+  }
+   button{
+       outline: none;
+   }
+   .msg-box{
+       margin:10px auto;
+       text-align: center;
+       width: 520px;
+       background: rgb(223, 222, 222);
+       position: relative;
+   }
+   .msg-box0{height: 150px;}
+   #text{
+       width: 500px;
+       height: 100px;
+       margin-top: 0px;
+   }
+   .btn1{
+       display: block;
+       right:10px;bottom: 5px;
+       position: absolute;
+   }
+   .sub-content{
+       border: 1px solid black;
+       background: gainsboro;
+       width: 100%;
+   }
+
+</style>
+<script>
+     Vue.filter('date',function(input){
+            var oDate=new Date(input*1000);
+            return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+        });
+    window.onload=function(){
+      var URL="weibo.php";
+        new Vue({
+            el:"#box",
+            data:{
+                mydata:[],
+                ti:"",
+                
+            },
+            methods:{
+                add:function(){
+                        //发送请求
+                        this.$http({
+                            url:URL,
+                            data:{ //后台发送数据
+                                act:'add',
+                                content:this.ti
+                            }
+                        }).then(function(res){
+                            var json=res.data;
+                            //msgData添加数据
+                            alert(res.data.content);
+                            this.mydata.unshift({
+                                content:this.ti,
+                                time:json.time,
+                                acc:0,
+                                ref:0,
+                                id:json.id
+                            });
+
+                            this.ti='';
+                        },function(){
+                            alert(404);
+                        });
+                    }
+                }
+                       
+                
+            
+        });
+    }
+   
+</script>
+</head>
+<body>
+    <div id="box">
+      <div class="msg-box msg-box0">
+        <textarea  id="text" v-model="ti"></textarea>
+        <button class="btn1 btn-info" type="button" @click="add" >提交</button>
+      </div>
+      <div class="msg-box msg-box1">
+         <p class="non-msg" v-show="mydata.length==0">暂无留言</p>
+         <div class="content">
+             <div class="sub-content" v-for="item in mydata">
+                 <p>{{item.content}}</p>
+                 <p class="operation">
+                        <span class="replyTime">{{item.time|date}}</span>
+                        <span class="handle">
+                            <a href="javascript:;" class="top">{{item.acc}}</a>
+                            <a href="javascript:;" class="down_icon">{{item.ref}}</a>
+                            <a href="javascript:;" class="cut">删除</a>
+                        </span>
+                    </p>
+             </div>
+         </div>
+      </div>
+    </div>
+   
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"></link>
+</body>
+</html>

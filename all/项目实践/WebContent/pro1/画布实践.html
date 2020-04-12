@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>画布实践</title>
+    <link rel="stylesheet" type="text/css" href="css/index2.css" />
+    <!--
+      <script src="js/index2.js" type="text/javascript"></script>
+    -->
+    <script>
+    /*
+    function draw(id){
+        var canvas=document.getElementById(id);
+        var context=canvas.getContext("2d");
+        context.fillStyle="grey";
+        context.fillRect(0,0,350,400);
+        var dx=150;
+        var dy=150;
+        var s=100;
+        context.beginPath();  //开始绘制 
+        context.fillStyle="pink";
+        context.strokeStyle="white";//white
+        var x=Math.sin(0);
+        var y=Math.cos(0);
+        var dig=Math.PI / 15*11;
+        for(let i=0;i<30;i++){  
+           //那么Math.PI/15*11的补角48度。需要用这个角度画一个圆，
+           //就要取48度和360度的最小公倍数。是1440，也就是30个48度的角。
+           //是不是/15*11应该不是重点，这只是决定你的每个角度是多少。
+           //如果你是在试着用三角形拼成一圈，那就是这个角度。
+           //当然也可以是/15*13,补角24度，最小公倍数720，同样只需要30个24度的
+          
+          var x=Math.sin(i*dig);
+          var y=Math.cos(i*dig);//sin角度
+          context.lineTo(dx+x*s,dy+y*s);//从哪里到哪里
+        }
+        context.closePath();
+        context.fill();
+        context.stroke();
+     } 
+    */
+     
+    /* 
+      function draw(id){  
+       //绘制贝尔赛曲线bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
+       //控制点后一个x,y控制前一个
+       var canvas=document.getElementById(id);
+        if(canvas==null){
+          return false;
+        }
+        var context=canvas.getContext("2d");
+        context.fillStyle="grey";
+        context.fillRect(0,0,300,400);
+        var dx=150, dy=150,s=100;
+        context.beginPath();
+        
+        context.moveTo(dx,dy);
+        for(var i=0;i<30;i++){
+          context.bezierCurveTo(0,0,600,100,0,0);
+        }
+        context.closePath();
+        context.fill();
+        context.stroke();
+      }
+      */
+      /*绘制圆形arc
+       function draw(id){
+        var canvas=document.getElementById(id);
+        if(canvas==null){
+          return false;
+        }
+        var context=canvas.getContext("2d");
+        context.fillStyle="grey";
+        context.fillRect(0,0,400,500);
+        for(let i=0;i<10;i++){
+             context.beginPath();
+             context.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+             //x,y,r,开始位置，终止坐标
+             context.closePath();//不关闭的时候，绘画第三个的话，会重绘第一个第二个....
+             context.fillStyle="rgba(220,220,0,0.5)";
+             context.fill();
+        }
+      }
+       */
+    </script>
+    </head>
+<body onload="draw('mycanvas')">
+<div id="head">
+  <canvas id="mycanvas" width="400px" height="500px">error</canvas>
+  <script>
+    /*
+  var myCanva=document.getElementById("mycanvas");
+  var con=myCanva.getContext("2d");
+  con.strokeStyle="#ff0000"
+  con.save();
+ 
+  con.strokeStyle="#00ff00"
+  con.arc(150,50,40,0,8);
+  con.stroke();
+
+ 
+  con.restore();
+  con.moveTo(170,30);
+   con.lineTo(155,30);
+   con.moveTo(125,30);
+   con.lineTo(140,30);
+   con.stroke();
+   con.moveTo(160,70);
+   con.arc(150,70,10,0,8);
+   con.fillStyle="white";
+   con.fill();
+  con.stroke();
+  con.strokeStyle="null" */
+</script>
+<script>
+  /*
+var c=document.getElementById("mycanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(220,20,100,60);
+	ctx.fillStyle="#0000ff";
+ctx.fillRect(240,30,100,60);*/
+</script>
+
+</div>
+
+</body>
+
+
+</html>

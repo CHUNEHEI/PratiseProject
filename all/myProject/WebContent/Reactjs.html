@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <form id="input" >
+  <div id="example"></div>
+  
+</form>
+    <script type="text/babel">
+var myStyle = {
+    fontSize: 30,
+    color: 'pink'
+};     
+
+ ReactDOM.render(
+<div>
+  <h1>Hello, world!</h1>
+<h1 style = {myStyle}>菜鸟教程</h1>
+      <h1>{1+1}</h1>
+{/*注释需要写在花括号中*/}
+    </div>,
+  document.getElementById('root')
+);
+ReactDOM.render(
+<div>
+<input type="submit" value="提交" />
+{/*我们可以在以上代码中嵌套多个 HTML 标签，需要使用一个 div 元素包裹它，
+实例中的 p 元素添加了自定义属性 data-myattribute，添加自定义属性需要使用 data- 前缀。
+在 JSX 中不能使用 if else 语句，但可以使用 conditional (三元运算) 表达式来替代。
+以下实例中如果变量 i 等于 1 浏览器将输出 true, 如果修改 i 的值，则会输出 false.i == 1 ? 'True!' : 'False'，
+数组可以先用全局变量声明，再由花括号引用变量*/} 
+ </div>,
+document.getElementById('input')
+);
+
+
+
+
+    </script>
+  </body>
+</html>

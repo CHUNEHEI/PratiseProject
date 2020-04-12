@@ -1,0 +1,104 @@
+img{width:240px;height:200px;}
+
+
+
+
+
+ul{list-style: none}
+.list-box{
+  width:1000px;
+  margin:0 auto;
+  height:72px;
+  border-bottom: 1px solid #949494;
+}
+.changeList-box{ 
+  width:1000px;
+  margin:0 auto;
+}
+.list{
+  float: right;
+  padding-top: 10px;
+}
+
+.list-box ul li{
+  width:30px;
+  height: 30px;
+  float: left;
+  display: block;
+  background: url('../src/toggle.png') no-repeat;
+ 
+}
+#list-1{ background-position:0px -34px}
+#list-2{ background-position:-34px -34px}
+
+.list-box ul li:hover{cursor: pointer}
+.changeList{list-style:none ;}
+.changeList .list-1-0{
+  height :260px;
+  width: 240px;
+  border: 1px solid #fff ;
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.changeList .list-2-0{
+  height :200px;
+ 
+  border: 1px solid #fff ;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#span{outline: none;cursor: pointer;font-size: 12px;color:grey}
+.model_info img{float: left}
+.list-div{margin-left:10px; clear: both;font-size: 14px;}
+.contentDiv div label{text-align: center;font-size: 16px;font-weight: bold;}
+.square-div{
+  text-align: center;
+  width:240px;
+   clear: both;
+   font-size: 12px;
+   margin-top:5px;
+}
+.intro{
+  margin-top:3px;
+}
+aside{
+  position:absolute;top:120px;
+}
+aside ul{
+  background: rgba(145, 194, 175, 0.719);
+  margin-left:20px;
+  width: 150px;
+  color:#eee;
+  list-style: none;
+  text-align: center
+}
+aside ul li{
+  border-bottom: 1px solid #fff;
+  display: block;
+  width: 150px;
+  height: 30px;
+  margin-top:5px ;
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.btn{
+  display: inline-block;
+  position: fixed;
+  bottom:50px;
+  width:40px;
+  height: 30px;
+  left:100px;
+  outline: none;
+  background: none;
+  display: none;
+  border-radius: 15px;
+  color:goldenrod; 
+}
+.btn:hover{
+  border:1px solid #949494;
+  cursor: pointer;
+}

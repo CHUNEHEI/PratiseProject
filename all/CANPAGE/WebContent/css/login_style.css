@@ -1,0 +1,234 @@
+@media only screen and(max-width:650px){#div1,#div2,#div3{display:none;}}
+body{
+margin:0;
+ }
+body header{
+position:relative;
+text-align:center;
+background-image:url('ig1.jpg');
+height:36rem;/*560px*/
+width:100%;
+background-position:center 0;
+background-repeat:no-repeat;
+
+-webkit-background-size:cover;/*兼容webkit内核浏览器*/
+background-size:cover;/*固定背景不会受缩放影响??*/
+/*background-attachment:fixed;固定背景不会受滚动影响*/
+}
+
+h1 {
+color:white;
+padding-top:2%;
+font-size:3.4rem;
+font-family:微软雅黑;
+letter-spacing:6pt;
+}
+/*word-spacing為設置單詞間距離
+letter-spacing為設置單字間距離
+*/
+h2{
+ color:white;
+ font-size:1.6rem;
+ margin-bottom:3.5%;
+margin-top:-0.5%;
+letter-spacing:10pt;
+font-family:微软雅黑;
+}
+
+header form{
+width:42rem;
+height:21.2rem;
+margin:auto auto;
+
+position:relative;
+display:block;
+background-color:RGBa(0,0,0,0.3);
+}
+
+
+nav{
+position:relative;
+margin:0;
+padding:0;
+height:3.1rem;
+width:100%;
+background:RGBa(0,0,0,0.3);
+}
+nav ul{
+margin:0;
+padding:0;
+position:absolute;
+height:3.1rem;
+width:100%;
+list-style-type:none;
+overflow:visible;
+margin:0 7.3rem;
+
+}
+nav ul>li{
+display:inline-block;
+float:left;/*固定主導航，當點擊次導航時不改變主導航位置*/
+height:auto;
+width:6.3rem;
+font-size:1.3rem;
+font-family:Arial;
+line-height:1.9rem;;
+margin-right:0.6rem;
+
+/*
+border-left:0.3px white solid;*/
+}
+#h{border:none;}
+nav li>a{
+display:block;
+
+height:100%;
+width:6.3rem;
+line-height:45px;/*設置行距能使字體居中于塊*/
+text-decoration:none;
+color:white;
+text-align:center;
+}
+/*次導航重要樣式
+nav ul ul{
+display:none;不顯示
+position:static;
+
+}
+nav ul ul li{
+position:relative;
+float:none; 不顯示
+display:block;
+list-style-type:none;
+
+}
+nav li:hover>ul{
+display:block;
+}
+*/
+nav ul ul{
+margin-left:0px;
+display:none;
+position:static;
+height:auto;
+width:6.3rem;
+}
+nav ul ul li{
+position:relative;
+float:none;
+display:block;
+list-style-type:none;
+height:2.5rem;
+width:100%;
+font-size:1.1rem;
+margin-top:2px;
+border-bottom:0.2px white solid;
+border-left:0px;
+font-family:Arial;
+}
+nav ul ul li>a{
+height:100%;
+width:100%;
+line-height:2.3rem;
+padding:0;
+
+background:RGBa(0,0,0,0.6);
+color:white;
+}
+nav li:hover>ul{
+display:block;
+}
+nav li:hover>a{
+color:black;
+background-color:white;
+}
+
+
+header form div{
+height:23%;
+padding-top:0;
+text-align:left;
+padding-left:26%;
+padding-right:20%;
+
+}
+
+header form div.d{
+padding-top:5%;
+}
+
+header form div.f{
+margin-top:-4%;
+}
+
+label{
+  font-size:150%;
+  padding-right:0.7rem;
+  color:white;
+  vertical-align:middle;
+  
+}
+/*
+vertical-align:middle; 负责将标签对齐
+*/
+#y{
+padding-right:1.5rem;
+}
+
+input{  
+       height:40%;
+       width:60%;      
+       padding-left:1%;
+       margin-bottom:1%;
+       vertical-align:top;
+}
+input[type="submit"]{
+font-size:1.1rem;
+width:15%;
+height:14%;
+margin-top:-0.5rem;
+color:grey;
+}
+input[type="button"]{
+font-size:1.1rem;
+width:15%;
+height:14%;
+margin-top:0.5%;
+color:grey;
+
+}
+/*
+padding為文本與邊框內邊距
+*/
+/*
+article樣式表
+*/
+article.a{
+position:relative;
+padding:0;
+margin:0;
+width:100%;
+}
+hr{
+
+margin:1px;
+border-top:5px dotted grey;
+}
+img{ 
+width:22.5rem;/*404.6px;*/
+/*使用相对宽度则不会受不同浏览器影响*/
+margin-left:13.5%;
+height:15rem;
+margin-top:1.25rem;
+border:4.5px white double;
+}
+img:hover{
+cursor:pointer;
+}
+#ib{
+margin-right:17.9rem;
+margin-left:0.6rem;
+float:right;
+}
+#div1,#div2,#div3{display:none;}
+

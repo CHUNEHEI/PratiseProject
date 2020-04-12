@@ -1,0 +1,154 @@
+html,body{padding:0;margin:0;}
+#sub{background-color:#242424;
+     width:100%;height:2.5rem;
+     
+     }
+     img#banner {width:auto;height:448px;position:relative;display:none}
+#main{
+    width:100%;height:3.5rem;
+     
+     }
+#logo{float:left;margin-left:6%;margin-top:0;
+padding-right:3%;}
+#logo img{width:3.5rem;height:3rem;margin-top:0.1rem;border-radius:3.5rem;border:1px grey solid}
+ul li{display:inline-block;height:2rem;
+      margin:0 0.4%;width:3.5rem;
+      text-align:center;
+      }
+li>a{color:#1e2746;}
+.ul_b{
+	width:36%;
+	height:3.5rem;line-height:3.5rem;
+	margin-left:2%;padding:0;margin-top:0;
+	}
+#banner_p p{
+	position:absolute;
+	font-size:6rem;
+	color:white;
+	margin-top:6rem;
+	margin-left:20%;
+}
+
+#post1{
+	margin:0 1%;
+	  width:98%;height:448px;
+      background-image: url("../Images/yuwenle.jpg");
+      background-position: center;
+      background-repeat:no-repeat;
+     
+      }
+#post2{width:100%;height:25rem;
+       background-color:#0a243a;
+       text-align:left;color:white;
+      
+      }
+   .btn{margin-left:38%;margin-top:3%;
+   height:2.5rem;width:7rem;line-height:1.3rem;
+   font-size:1.1rem;text-align:center}   
+   h1{text-align:center;font-size:2.5rem;
+    font-family:elephant;margin:0rem;padding-top:2.6rem;}
+ #text0{width:42%;margin:auto auto;}
+  #text0 button{border-radius:20px;color:#0a243a}
+  p{
+  margin-top:1rem;
+  font-size:1.2rem;font-family:Î¢ÈíÑÅºÚ;
+  }
+
+#intro{width:100%;height:25rem;
+       background-color:white;
+      }
+  
+  @media only screen and (max-width:960px) and (min-width:600px) {
+  img#banner{width:90%;height:auto;position:relative;display:block;margin:0 5%;}
+  #post1{
+	margin:0 1%;
+	  width:98%;height:auto;
+      background-image: none;
+      }
+  ul li{display:inline-block;height:2rem;
+      margin:0 0.4%;width:2.5rem;
+      text-align:center;
+      font-size:0.7rem;
+      }
+li>a{color:#1e2746;}
+.ul_b{
+	width:80%;
+	height:2.5rem;line-height:3.5rem;
+	margin-left:2%;padding:0;margin-top:0;
+	}
+	#text0{width:60%;margin:auto auto;}
+.btn{margin-left:40%;margin-top:3%;
+   height:1.5rem;width:4.5rem;line-height:.4rem;
+   font-size:.7rem;text-align:center}
+  h1{font-size:1.2rem;}
+  p{
+  margin-top:1rem;
+  font-size:0.7rem;font-family:Î¢ÈíÑÅºÚ;
+  }
+  #post2{width:100%;height:15rem;}
+  }
+  @media only screen and (max-width:600px) and (min-width:400px){
+    img#banner{width:90%;height:auto;position:relative;display:block;margin:0 5%;}
+  #post1{
+	margin:0 1%;
+	  width:98%;height:auto;
+      background-image: none;
+      }
+  ul li{display:inline-block;height:2rem;
+      margin:0 0.4%;width:2.5rem;
+      text-align:center;
+      font-size:0.7rem;
+      }
+li>a{color:#1e2746;}
+.ul_b{
+	width:80%;
+	height:2.5rem;line-height:3.5rem;
+	margin-left:2%;padding:0;margin-top:0;
+	}
+	#text0{width:60%;margin:auto auto;}
+.btn{margin-left:37%;margin-top:3%;
+   height:1.5rem;width:4.5rem;line-height:.4rem;
+   font-size:.7rem;text-align:center}
+  h1{font-size:1.2rem;}
+  p{
+  margin-top:1rem;
+  font-size:0.7rem;font-family:Î¢ÈíÑÅºÚ;
+  }
+  #post2{width:100%;height:15rem;}
+  }
+  @media only screen and (max-width:400px){
+
+  #logo img{width:2.5rem;height:2rem;margin-top:0.1rem;border-radius:3.5rem;border:1px grey solid}
+  .ul_b{
+	width:100%;
+	height:1.5rem;line-height:1.5rem;
+	margin-left:2%;padding:0;margin-top:0;
+	}
+	 ul li{display:inline-block;height:1rem;
+      margin:0 0.4%;width:2.5rem;
+      text-align:center;
+      font-size:0.5rem;
+      }
+      #main{
+    width:100%;height:2.5rem;
+     }
+  #post1{
+	margin:0 1%;
+	  width:98%;height:100px;
+      background-image: url("../Images/yuwenle.jpg");
+      background-position: center;
+      background-repeat:no-repeat;
+     background-size: contain;
+      }
+      	#text0{width:70%;margin:auto auto;}
+.btn{margin-left:35%;margin-top:3%;
+   height:1rem;width:3rem;line-height:0;
+   font-size:.4rem;text-align:center;padding:0}
+  h1{font-size:0.8rem;padding-top:1rem;}
+  p{
+  margin-top:1rem;
+  font-size:0.5rem;font-family:Î¢ÈíÑÅºÚ;
+  }
+  #post2{width:100%;height:11rem;}
+  }
+      }

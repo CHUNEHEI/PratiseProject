@@ -1,0 +1,134 @@
+@media screen and (min-width:1367px){
+	html{font-size:2rem;}
+
+}
+
+@media screen and (max-width:1365px){
+	
+#yh{display:none}
+
+div form{
+	background:red;
+	height:30rem; width:54%;
+	}
+	#logo{
+	display:none;
+	}
+}
+html,body,header{margin:0;padding:0;font-size:1rem;}
+
+header{
+	padding-top:1rem;
+background:RGBa(154,168,18,0.2);
+width:100%;
+positon:relative;
+}
+/*
+#push{
+	float:left;
+	margin-top:0;margin-left:2rem;
+	background-color:RGBa(154,168,18,0.2);color:white;        
+	border:1px white double;
+	height:2rem;
+      
+    }*/ 
+#nav1{
+	width:100%;height:2rem;
+	position:fixed;
+	padding:0;margin:0 1rem;
+	z-index: 100;
+}
+#a{
+	width:40%;height:100%;
+	text-algin:left;
+	float:left;
+	padding-left:2.8rem;
+	margin-top:3rem;margin-left:-4.7rem;
+    background-color:pink;
+}
+ul li.li-a{
+	display:block;
+	border:0.1px white solid;
+	border-bottom:0;
+    line-height:3rem;
+    background-color:RGBa(124,158,118,0.6);
+    width:4.5rem;
+    height:3rem;
+    margin-left:1px;
+    text-align:center;
+    
+}
+
+
+#a li{margin-left:-8px;}
+ul li a:hover{
+	background-color:white;
+        color:#408080;
+}
+#aa{border-left:0;}
+ul li a{
+	display:block;
+	text-decoration:none;
+	color:white;
+	 width:100%;
+}
+#logo{
+	float:left;
+	background-color:white;
+	width:41.2%;height:2rem;
+	}
+#nav2{
+   float:right;
+   height:2rem;width:22.6%;
+   position:relative;
+   margin-right:0.5rem;
+}
+#b{width:86%;height:100%;margin-top:0;}
+
+#yh{width:11%;height:2rem;float:left}
+#b li{
+	display:inline-block;
+	border-left:1px white solid;
+    line-height:2rem;
+    text-align:center;
+	margin-right:-7px; font-size:16px;width:29%;background-color:RGBa(194,228,188,0.9);}
+#b li>a, #b img{
+	vertical-align:middle;
+	background-color:RGBa(254,228,228,0.5);color:white;
+	
+	}
+
+.img-div img{ 
+	width:58%; height:100%; 
+	float:right; 
+	opacity:0.8;
+	
+	}
+div form{
+	background:RGBa(124,158,118,0.4);
+	height:30rem; width:42%;
+	
+	}
+input.text,input.psd{
+	display:inline-block;
+	margin-top:8rem;margin-left:2%;
+	width:28%;height:2rem;color:RGBa(128,128,128,0.5);
+	}
+form input[type="password"]{margin-top:10px;}
+label{
+	display:inline-block;
+	width:8rem;line-height:2rem;height:2.2rem;
+	color:white;font-size:1.2rem;margin-left:28.5%;
+	text-align:right}
+	.enter{
+	margin-top:1%;
+	}
+#login,#regi{
+	display:block;width:15rem;height:3rem;
+    margin:12px 38%;
+    color:RGB(128,158,148);
+    font-size:1.2rem;
+    }
+    
+    
+    

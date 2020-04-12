@@ -1,0 +1,67 @@
+@charset "UTF-8";
+td{width:4.6rem;}
+.nav-masthead{float:right;height:2.5rem;margin-right:3%}
+.nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: white;  
+    border-bottom: .25rem solid #c0c0c0;
+}
+.nav-link,.nav-link:focus{
+	margin-left:1rem;
+	width:5.3rem;
+	text-align:center;
+	border-bottom: .25rem solid white;
+	color:grey;
+}
+.nav-link:hover{
+	border-bottom:.25rem solid grey;
+}
+#text p{font-size:1.5rem;text-align:left}
+#article{height:25rem;padding:2% 0;padding-top:7rem;}
+#text{clear:both;margin-left:8%;width:50%;display:inline-block;text-align:center;color:white}
+article{background:#4f4f4f;overflow:visible;}
+#btn2{margin-left:2rem}
+body{ font-family:微软雅黑}
+form{ float:right;margin-right:15%;}
+#tab{margin:1% auto;color:white;}
+
+@media only screen and (max-width:1000px) and (min-width:600px){
+	#article{height:38rem;padding:2% 0;padding-top:7rem;}
+	#text p{font-size:1.5rem;text-align:left}
+	form{float:none}
+	#tab{color:white;clear:both;margin-top:4rem;margin-left:38%;}
+    #text{margin-left:8%;width:80%;display:block;text-align:center;color:white}
+}
+@media only screen and (max-width:600px) and (min-width:400px){
+	form{float:none}
+	h1{font-size:2rem;}
+	#article{height:33rem;padding:2% 0;padding-top:7rem;}
+	#text{margin-left:8%;width:80%;display:block;text-align:center;color:white;}
+	#text p{font-size:1rem;text-align:left}
+	#tab{color:white;clear:both;margin-top:3rem;margin-left:30%;}
+}
+@media only screen and (max-width:400px){
+	form{float:none}
+	.nav-link, .nav-link:focus{
+	font-size:0.38rem;
+	margin-left:0.5rem;
+	width:2rem;
+	height:1.5rem;
+	text-align:center;
+	border-bottom: .25rem solid white;
+	color:grey;
+}
+.nav-link:hover{
+	border-bottom:.25rem solid grey;
+}
+.nav-masthead{float:right;height:2.5rem;margin-right:3%}
+	h1{font-size:2rem;}
+	#article{height:33rem;padding:2% 0;padding-top:3rem;}
+	#text{margin-left:8%;width:80%;display:block;text-align:center;color:white;}
+	#text p{font-size:0.8rem;text-align:left}
+	#tab{color:white;clear:both;margin-top:2rem;margin-right:5%;margin-left:30%;font-size:0.6rem;}
+	td{width:4rem;}
+	td .btn{font-size:0.5rem; width:2.5rem;height:1rem;line-height:0rem;}
+	#btn2{margin-left:0.5rem}
+}

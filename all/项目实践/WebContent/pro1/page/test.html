@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<style>
+    button{width:70px;height: 40px;border-radius: 40px;
+        background-color:palevioletred;outline: none;}
+    .pink{background-color: pink}
+</style>
+</head>
+<body>
+   
+    <!-- v-modle 使用方式-->
+    <!-- 
+        v-on:onclcik 事件监听器 v-bind:class动态切换样式
+        methods方法
+    -->
+<div id="app">
+   <input v-model="message" />
+   <p>{{message}}</p>
+   <button v-bind:class="{pink:condition}" v-on:click="vclick">www</button>
+</div>
+<!--  判断class-->
+<!--   
+     <v-bind:class="classObject">
+    data: {
+     isActive: true,
+     error: null
+  },
+  computed: {
+    classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal'
+     }
+   }
+ }
+ 我们可以把一个数组传给 v-bind:class，以应用一个 class 列表：
+ data: {
+  activeClass: 'active',
+  errorClass: 'text-danger'
+ }
+ <div v-bind:class="[activeClass, errorClass]"></div>
+-->
+<script>
+ new Vue({
+  el: '#app',
+  data: {
+    message: '请输入内容',
+    condition:false,
+  },
+  methods:{
+      vclick:function(){
+      if(this.condition==true){
+          this.condition=false;
+         
+      }
+        else this.condition=true;
+  }
+}
+  ,
+})
+</script>
+
+<!-- v-for 使用方式
+     v-for="(item,index索引) in items “
+-->
+<!--
+      <li v-for="item in items">
+    {{ item.message }}
+  </li>  
+-->
+
+<!--
+ Vue.set
+ 当你利用索引直接设置一个项时，例如：vm.items[indexOfItem] = newValue
+ Vue.set(vm.items, indexOfItem, newValue)
+ vm.$set
+ vm.items.splice(8)设置数组长度
+-->
+<ul id="example-1">
+
+
+ <li v-for="(item,index) in items" :key="item.id">
+    {{ item.message}} - {{ index+1 }}
+  </li>
+</ul>
+
+<script>
+    var vm=new Vue({       //:key为v-bind简写
+        el:'#example-1',
+        data:{
+            items:[
+                {message:'First',id:'msg1'},
+                {message:'Second',id:'msg2'},
+                 {message:'Third',id:'msg3'}  //.split('').reverse.join('')
+            ]
+        }
+    })
+   vm.items.push({message:'Four',id:'msg4'});
+</script>
+<!--
+    你也可以用 v-for 通过一个对象的属性来迭代。
+-->
+    
+<ul id="v-for-object" class="demo">
+  <li v-for="(value,key) in object">
+    {{key}}:    {{value}}
+  </li>
+</ul>
+<script>
+var ac=new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      MyName: 'CHUENHEI',
+      Sex: 'male',
+      Age: 20  //若用户定义同名变量，vue需要使用$sex来区分
+    }  //Vue.set(object, key, value),object=>ac.object
+  }
+})
+
+</script>
+
+<!--样式使用对象来引入，类似CSS-->
+<div id="div2" v-bind:style="objectStyle">aaa</div>
+<script>
+    new Vue({
+     el:'#div2',
+     data:{
+         objectStyle:{    //属性名使用驼峰型命名
+             color:'white',
+             background:'#203060',
+             borderRadius:'150px',
+             width:'500px',
+             height:'200px',
+             textAlign:'center'   
+         }
+     }
+    })
+</script>
+<!--
+    使用v-if条件并用值判断切换显示
+    若切换多个元素，用渲染元素<template v-if></template>
+-->
+<div id="div3">
+<button v-on:click=toggle>Toggler</button>
+<div v-if="weak">{{show}}</div>
+<div v-else>{{hide}}</div>
+<div>
+<script>
+    new Vue({
+     el:'#div3',
+     data:{
+         weak:false,
+         hide:'you cant see me',
+         show:'halo, i am here'   
+         },
+    methods:{
+        toggle:function(){
+        //if(this.weak==true){this.weak=false}
+        //else this.weak=true;
+        //三元运算符
+        return this.weak?this.weak=false:this.weak=true;
+    }
+    }
+    })
+</script>
+
+
+</body>
+</html>

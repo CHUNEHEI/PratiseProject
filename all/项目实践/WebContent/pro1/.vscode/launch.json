@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceRoot}"
+        },
+         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "chrome",
+            "file": "${workspaceRoot}/index.html",
+            //"url": "http://localhost:8080/inmate.html",
+            "webRoot": "${workspaceRoot}",
+            "sourceMaps":true,
+            "userDataDir": "${tmpdir}",
+            "port": 9222,
+            "runtimeExecutable": "C:\\Users\\lenovo\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe"
+        }
+
+    ]
+}

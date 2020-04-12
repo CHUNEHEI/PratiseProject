@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>welcome</title>
+<style>
+img{
+width:10%;
+}
+.as{color:red;}
+</style>
+<script>
+for(var i=0;i<document.imge.length;i++){
+	document.getElementById("img"+i).onclick="findSeat(this)";
+	
+}
+
+function whange(){
+	var i=1;
+	var ran=document.getElementById("we"+i).value;
+	document.getElementById("lab").innerText=ran;
+}
+
+function onLoading(){
+for(var i=0;i<document.imge.length;i++){
+document.getElementById("img"+i).src="Image/menu.png";	
+document.getElementById("img"+i).alt="还没选择";
+}
+}
+	function findSeat(obj){
+		var a=obj;
+		a.src="Image/sel.jpg";
+		a.alt="选中";
+		
+		//a.class="well";
+		//若不加timeout,那么先执行confirm再执行上面的代码，这叫预处理
+       setTimeout(
+    		   function(){var accept=confirm("请确认座位并支付");
+    		   if(accept){
+    				a.src="Image/yonghu.png";
+    				a.alt="已经选择";
+    				a.removeAttribute("onclick");
+    				payment();
+    			}
+    			else  {
+    				a.src="Image/menu.png";
+    			    a.alt="还没选择";
+    			}
+    		   },100); 
+     } 
+	function payment(){
+		var a=document.getElementById("input").value;
+		
+		
+		document.getElementById("input").value=parseFloat(30)+parseFloat(a);
+		
+	}
+	/**function confirmPayment(){
+		var selected=document.getElementsByClassName("well");
+		var accept=confirm("请确认座位并支付");
+		if(accept){
+			for(i=0;i<selected.length;i++){
+			selected[i].src="Image/yonghu.png";
+			selected.alt="已经选择";}
+		}
+		else  {
+			for(i=0;i<selected.length;i++){
+			selected.src="Image/menu.png";
+			selected.alt="还没选择";}
+		}
+	   },100);
+		
+		
+	}
+	**/
+
+
+	
+</script>
+</head>
+
+
+<body onload="onLoading()">
+<input id="we1" type="range" step="0.1" onchange="whange()" value="12">
+<label id="lab" >12</label>
+<div>
+<img id="img0" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img1" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img2" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img3" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img4" name="imge" alt="" src="" onclick="findSeat(this)"/>
+</div>
+<div>
+<img id="img5" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img6" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img7" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img8" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img9" name="imge" alt="" src="" onclick="findSeat(this)"/>
+</div>
+<button id="btn" onclick="confirmPayment()">Renew</button>
+<div style="margin-top:1rem">
+<span>缴费</span><input id="input" value="0" disabled/>
+</div>
+</body>
+</html>

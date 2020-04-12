@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var rangeObj = document.createRange();
+function select(){
+	var div=document.getElementById("div");
+	rangeObj.selectNode(div);
+	
+}
+function show(){
+	alert(rangeObj.toString());
+	
+}
+	
+</script>
+</head>
+<body>
+
+
+<div id="div" style="width:100px;height:30px;color:white;background-color:pink">
+你觉得我是不是
+</div>
+
+<button onclick="select();">select</button>
+<button onclick="show()">show</button>
+</body>
+</html>

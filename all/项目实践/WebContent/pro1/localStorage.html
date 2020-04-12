@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>localStorage && sessionStorage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  
+</head>
+<body>
+     <!-- 
+     <input id="input" style="width:100px;height:10px"/>
+     <button id="save">save</button>
+     <button id="clear">clear</button>
+     -->
+     <div>
+       <span id="num">0</span> 
+     </div>
+     <button id="add">Add</button><button id="clear">clear</button>
+    <!--   localStorage
+      <script>
+      var input,save,clear;
+      window.onload=function(){
+      input=document.getElementById("input");
+      if(localStorage.key){
+     input.value=localStorage.getItem("key");
+      };
+       save=document.getElementById("save");
+       save.onclick=function(){
+         var val=localStorage.setItem("key",input.value);
+         var ans=localStorage.getItem("key");
+     
+       }
+      clear=document.getElementById("clear");
+      clear.onclick=function(){
+        localStorage.clear();
+        }
+      }
+    </script>
+
+-->
+
+    <script>
+    var num,add,clear;
+    var count=0;
+    window.onload=function(){
+      num=document.getElementById("num");
+      add=document.getElementById("add");
+      clear=document.getElementById("clear");
+      if(sessionStorage.count){
+        count=sessionStorage.a;
+      }else{
+        count=0;
+      }
+
+      add.onclick=function(){
+        count++;
+        sessionStorage.a=count;
+        showNum();
+      }
+      clear.onclick=function(){
+        sessionStorage.clear();
+      }
+    }
+    function showNum(){
+      num.innerHTML=count;
+    }
+    </script>
+</body>
+</html>

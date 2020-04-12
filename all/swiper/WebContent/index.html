@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+<style>
+html,body{background-color:pink;position:relative;height:100%}
+ .swiper-container {
+      width: 50%;
+      height: 100%;
+      
+    }
+    .swiper-container-v {
+      width: 100%;
+      height: 100%;
+    
+    }
+   .swiper-container-v .swiper-wrapper .swiper-slide
+   {background-color:black;
+     color:white;}
+.swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background-color:white;
+     
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+</style>
+</head>
+<body>
+<div class="swiper-container swiper-container-h">
+  <div class="swiper-wrapper">
+   <div class="swiper-slide">ONE</div>
+   <div class="swiper-slide">
+     <div class="swiper-container swiper-container-v">
+        <div class="swiper-wrapper">
+         <div class="swiper-slide">we</div>
+         <div class="swiper-slide">are</div>
+         <div class="swiper-slide">are</div>
+         </div>
+          <div class="swiper-pagination swiper-pagination-black"></div>
+         </div>
+         </div>
+   <div class="swiper-slide">THREE</div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev swiper-button-black"></div>
+   <div class="swiper-button-next swiper-button-black"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script>
+var swiper=new Swiper('.swiper-container-h',{
+	autoplay:true,
+	speed:900,
+	loop:true,
+	effect:'cube',grabCursor:true,
+	pagination:{el:'.swiper-pagination',clickable:true,},
+	navigation:{nextEl:'.swiper-button-next',
+		prevEl:'.swiper-button-prev',},
+});
+var swiper=new Swiper('.swiper-container-v',{
+	speed:'700',direction:'verticle',
+	pagination:{el:'.swiper-pagination-black',clickable:true,},
+	
+});
+</script>
+</body>
+</html>

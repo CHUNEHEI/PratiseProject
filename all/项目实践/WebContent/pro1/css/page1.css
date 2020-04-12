@@ -1,0 +1,9 @@
+#frame{float:left; }
+#ul{width: 15%;display:inline-block;}
+#ul>label{
+    margin-top:5px;background: pink;display: block;width: 100px;
+    height:40px;text-align: center;line-height: 40px;color: white;
+    font-size: 1.2em;
+ }
+#ul>label{text-decoration: none;color: white;}
+#ul>label:hover{border-bottom:2px solid #999991;}

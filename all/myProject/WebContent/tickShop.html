@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>welcome</title>
+<style>
+img{
+width:10%;height:117px;
+}
+.as{color:red;}
+
+</style>
+<script>
+
+
+var selected;
+function whange(){
+	var j=1;
+	var ran=document.getElementById("we"+j).value;
+	document.getElementById("lab").innerText=ran;
+}
+
+function onLoading(){
+for(var i=0;i<document.imge.length;i++){
+document.getElementById("img"+i).src="Image/menu.png";	
+document.getElementById("img"+i).alt="还没选择";
+}
+}
+/* 
+  var imgDiv=document.getElementById("imgDiv");
+
+imgDiv.addEventListener("click",function(event){
+    
+     var target=event.target;
+    console.log(event.target.id);
+    
+		if(target.alt=="已经选择"){
+                alert("该位置已被选择");
+		}
+             else{ 
+                target.src="Image/menu1.png";
+		target.alt="选中";
+		target.setAttribute("class","well");
+              }
+},false);  */
+
+
+ 
+	 
+       function findSeat(obj){
+		var a=obj;
+		if(a.alt=="已经选择"){
+                alert("该位置已被选择");
+		}
+             else{ 
+                a.src="Image/menu1.png";
+		a.alt="选中";
+		a.setAttribute("class","well");
+              }
+		
+     } 
+
+	function confirmPayment(){
+		
+		selected=document.getElementsByClassName("well");
+		var accept=confirm("请确认座位并支付");
+		var length=selected.length;
+		if(accept){
+			//selected[2].src="Image/yonghu.png";
+			for(var i=0;i<length;i++){
+			selected[i].src="Image/yonghu.png";
+			selected[i].alt="已经选择";
+			//selected[i].removeAttribute('class');//破坏循环结构，因为删除了class使数组少一个元素
+				//document.getElementById("qwe").innerText=i;
+			}
+			
+			//result
+			document.getElementById("tick").value=length;
+			document.getElementById("input").value=60*length;
+			
+			//remove
+			for(var i=0;i<document.imge.length;i++){
+			document.getElementById("img"+i).removeAttribute('class');
+			}
+			
+		}
+		else  {
+			for(var i=0;i<selected.length;i++){
+			selected[i].src="Image/menu.png";
+			selected[i].alt="还没选择";}
+			
+		}
+		for(var i=0;i<document.imge.length;i++){
+			document.getElementById("img"+i).removeAttribute('class');
+			}
+		
+	   }
+		
+		
+	
+	
+
+
+	
+</script>
+</head>
+
+
+<body onload="onLoading()">
+<!--
+<input id="we1" type="range" step="0.1" onchange="whange()" value="12">
+<label id="lab" >12</label>
+-->
+<div id="imgDiv">
+<img id="img0" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img1" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img2" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img3" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img4" name="imge" alt="" src="" onclick="findSeat(this)"/>
+</div>
+<div>
+<img id="img5" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img6" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img7" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img8" name="imge" alt="" src="" onclick="findSeat(this)"/>
+<img id="img9" name="imge" alt="" src="" onclick="findSeat(this)"/>
+</div>
+<button style="margin:1rem 1rem;;width:4rem;height:2rem;" id="btn" onclick="confirmPayment()">确认</button>
+<div style="margin-top:1rem">
+<span style="margin-left:1rem;">单价  </span><input id="price" value="60" disabled/><br>
+<span style="margin-left:1rem;">票数  </span><input id="tick" value="" disabled/><br>
+<span style="margin-left:1rem;">缴费  </span><input id="input" value="0" disabled/><br>
+</div>
+</body>
+</html>

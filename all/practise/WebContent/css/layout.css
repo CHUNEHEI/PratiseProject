@@ -1,0 +1,77 @@
+@charset "UTF-8";
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	background-color: #fff0f7;
+}
+.wpp{
+  width:86%;
+  height:1000px;
+  background-color:#ffd6d2;
+  margin:0px auto;
+}
+
+.heading{
+	width:100%;
+	height:110px;
+	background-color:#fff0f7;
+	margin:0px auto;
+}
+.heading_nav{
+	padding:30px 0;
+	width:100%;
+	height:30px;
+	position:relative;
+}
+.heading_title{
+	float:left;font-family:Arial,Helvetice,sans-serif;
+	font-size:30px;
+	color:#008080;
+}
+ul{
+	margin-left:40px;
+	float:left;
+	list-style-type:none;
+	padding:0 6px;
+}
+li{display:inline-block;padding-left:10px;line-height:20px;}
+font{font-weight:lighter;font-size:smaller;padding-left:5px;}
+a:link,a:visited{
+	font-weight:bold; color:#c5c5c5;text-align:center;
+  padding:6px;text-decoration:none;
+}
+a:active,a:hover{
+	color:grey;
+}
+.heading_soptlight form{
+	float:right;width:100px;height:60px;margin-right:90px;position:relative;vertical-align: middle;
+ }
+ form input{height:25px;border-radius:20px}
+.footing{
+	padding-top:22px;
+	padding-bottom:22px;
+	text-align:center;
+	color:#c0c0c0;
+	font-size:16px;
+	
+}
+
+/*li:nth-child(even){
+	background-color:pink;
+}
+li:nth-last-child(odd){
+	background-color:#ffd7de;
+}
+li:only-child{表示自选择只有一个子元素的一项}
+<ul><li></li><ul>
+*/
+
+li:nth-child(2n+1){
+	background-color:#ffd7de;
+}
+li:nth-child(2n+2){
+	background-color:#ceefff;
+}
+
