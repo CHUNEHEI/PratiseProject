@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    html,body{margin: 0;padding: 0;/* perspective: 1000px; */}
+    
+     ul,li{list-style: none;margin:0;padding: 0}
+     .content{position: relative; 
+       width: 255px;height: 255px;
+      /*  transform: rotateX(10deg); */
+      transform-style: preserve-3d;
+      transition:all 0.5s ease-in-out;
+       }
+     .content1,.content2,.content3,.content4{
+      width: 255px;height: 255px;
+      /* 原来300px z轴1000px 由于上移150px 所以全是255*/
+      }
+    .content1{
+      position:absolute;
+      /* 原来150px;但是作为255一半变成127.5 */
+      transform:translateY(-127.5px) rotateX(90deg) ;
+      background: black;
+     }
+    .content2{
+      position:absolute;
+      background: blueviolet;
+      transform: translateZ(127.5px);
+    
+    }
+    .content4{
+      position:absolute;
+      background: yellow;
+      transform: translateZ(-127.5px);
+     
+    }
+     .content3{
+       position:absolute;
+       transform:translateY(127.5px) rotateX(-90deg); 
+       background: pink
+      }
+       /* transform 多个属性与顺序有关 */
+  </style>
+</head>
+<body>
+  
+
+  <div id="div">
+    <ul class="content">
+       <li class="content1"> </li>
+       <li class="content2"></li>
+       <li class="content3"> </li>
+       <li class="content4"> </li>
+    </ul>
+  </div>
+  <div id="btn">
+  <button id="btn1">翻滚吧！第一页</button>
+  <button id="btn2">翻滚吧！第二页</button>
+  <button id="btn3">翻滚吧！第三页</button>
+  <button id="btn4">翻滚吧！第四页</button>
+  </div>
+  <script>
+     var btn= document.getElementById('btn');
+     var content=document.querySelector('.content');
+     btn.addEventListener('click',function(e){
+       console.log(e.target.id);
+           switch(e.target.id){
+             case 'btn1': 
+             content.style.transform='rotateX(-90deg)';
+             break;
+             case 'btn2': 
+             content.style.transform='rotateX(0deg)';
+             break;
+             case 'btn3': 
+             content.style.transform='rotateX(90deg)';
+             break;
+             case 'btn4': 
+             content.style.transform='rotateX(180deg)';
+             break;
+           }   
+     },true)
+  </script>
+</body>
+</html>
+<!-- 注意点：
+1：transform的多个属性值顺序，rotate会改变坐标轴
+2：transform-style  prespective:z轴的大小
+3：注意3d透视图所显示的图像远近，若向z轴移动了，需要重新计算其的x/y成形的图面
+    公式：1000为z轴高 z移动了150 则h=H-150 width:300 求成形的宽度和高度
+    对应的重新z移动也需要改
+4：3d成形立体，通过定位absolute变成层叠图面，再通过transform 的转换形成立体面 
+ -->
+ <!-- 建议pxcook -->
+ <!-- 
+   sass less  css组件化
+   响应式：=>根据什么显示器，显示不同图片 (媒体查询+flex)
+   另外有一个模糊图先代替
+    @media screen and (max-width:){}
+    图片不能用来布局！！原尺寸，先把图片改了
+    flex//沿着父元素主轴排列
+    flex-flow:row wrap 当子元素宽度大于父元素，则将多余子元素换行
+    flex:1(子元素) flex-basis:40% 100% 根据媒体查询来改变比例和响应式图片
+    若设置宽高，若超出父元素宽度则按比例设置宽度
+
+    justify-content:space-between;元素分开两边  space-around 每个元素等间隔
+    //设置子元素如何沿着父元素主轴排列，分开两边
+    在父元素上设置
+    <div  父元素> 
+      <ul></ul><ul></ul>
+    </div>
+    3d导航：
+    ul{position:rel;}坐标系
+    li{position:abs;}
+    z-index
+    位置顺序从上到下：cc 3>bb 2>aa 1
+    <ul  id="content">
+      <li>aa</li>
+      <li>bb</li>
+      <li>cc</li>
+    </ul>
+    //重点  transform-style: preserve-3d;
+    在父元素添加：perspective:1000px;3d坐标系的z轴
+    将aa bb cc变成门的立体，以y轴为地面视线，往x看
+    aa{
+      transform:rotateX(90deg);门的左手边
+       //现在为十字
+       //变为门字;
+      transform:translateY(移动到顶端)
+    }
+    bb{ transform:translateZ(移动到门字顶端)}
+    cc{
+      transform:translateY(移动到低端)rotateX(-90deg);门的左手边
+    }
+    变成近大远小=>scale 相似三角形 边与边比例
+    z默认1000px 地面300px bb移动了xpx 然后求父元素width和height缩小
+    不允许left right top bottom 进行元素定位;flex;
+    
+    通过点击左边浏览图，实现3d导航：
+    content 父元素 rotateX(deg);
+  -->

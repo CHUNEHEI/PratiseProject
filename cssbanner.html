@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+     *{margin: 0;padding: 0}
+     .box{
+       width: 790px;
+       height: 390px;
+       margin: 0 auto;
+       border: 3px black solid;
+     }
+     .box ul{
+       list-style: none;
+       background: green;
+       width: 300px;
+       display: inline-block;
+     }
+     .box li{
+       background: yellow;
+       float: left;
+       line-height: 30px;
+       text-align: center;
+       width: 60px;
+       height: 30px;/* 或者float */
+     }
+     /* ~普通兄弟选择器 */
+     .box ul li:nth-child(1):hover ~ .container{
+       background: yellow
+       /* background-image */
+     }
+     .box ul li:nth-child(2):hover ~ .container{
+       background: pink
+       /* background-image */
+     }
+     .box ul li:nth-child(3):hover ~ .container{
+       background: red
+       /* background-image */
+     }
+     .box ul li:nth-child(4):hover ~ .container{
+       background: blue
+       /* background-image */
+     }
+     .box ul li:nth-child(5):hover ~ .container{
+       background: brown
+       /* background-image */
+     }
+     .box ul .container{
+       width: 790px;
+       height: 340px;
+       margin-top: 30px;
+     }
+  </style>
+</head>
+<body>
+    <div class="box">
+       <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li>4</li>
+         <li>5</li>
+         <div class="container"></div>
+       </ul>
+      
+    </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- name=keywords搜索关键字 description广告商 -->
+  <title>上传</title>
+  <style>
+      #drag{
+        width: 50px;
+        height: 50px;
+        background: pink
+      }
+      #box{
+        width: 500px;
+        height: 500px;
+        border: 2px red solid;
+        margin: 100px auto
+      }
+      body{background: whitesmoke}
+      #contain{width: 80%;margin:0 auto;color:gray;
+      background: white;height: auto;}
+      section{width: 80%;margin:0 auto}
+      article{width: 90%;height: 200px;line-height: 200px;text-align: center;
+      margin:0 auto;background: whitesmoke}
+      button{margin-top: 1rem;}
+  </style>
+</head>
+<body>
+     
+    <div id="drag" draggable="true" hidden ></div> 
+     <!-- 被拖拽元素事件
+         ondragstart
+         ondrag
+         ondragend
+     -->
+     <div id="box" hidden></div>
+     <script>
+        var drag=document.getElementById("drag");
+        drag.ondragstart=function(e){
+          
+          //
+        }
+        drag.ondragend=function(){
+          //
+        }
+        //目标元素事件，以鼠标位置为准
+        //e.preventDefault();用于目标元素
+        var box=document.getElementById("box");
+        box.ondragenter=function(){
+          this.style="border-color:pink"
+        }//进入
+        box.ondragleave=function(){
+          this.style="border-color:red"
+        }
+        box.ondragover=function(e){
+          e.preventDefault();
+          this.style="background:pink"
+        }//划过，移动，在目标元素上移动
+        box.ondrag=function(e){
+        
+        }//目标元素上释放
+       // event.preventDefault();
+     </script>
+<!-- 浏览器对本地文件有解释，不需要对被拖拽元素进行事件绑定 -->
+    <div id="contain">
+     <section class="wrap">   
+         <h1>图片拖拽上传</h1>
+     </section>
+    <section>   
+       <article id="obox" >
+             请拖到此处
+       </article>
+    </section>
+    <section>
+     <button id="upload">开始上传</button>
+    </section>
+    <section>
+        <ul id="filesList" width='400px'></ul>
+    </section>
+  </div>
+   <script>
+     //封装事件
+      var obox=document.getElementById("obox");
+      var arr1=[];
+      (function(){
+          obox.onclick=eventFun;
+          obox.ondragenter=eventFun;
+          obox.ondragover=eventFun;
+          obox.ondragleave=eventFun;
+          obox.ondrop=eventFun;
+      })()
+      function round(num,d){
+      num*=Math.pow(10,d);
+      num=Math.round(num);
+      return num/Math.pow(10,d);
+       } 
+       var files;
+      function eventFun(e){
+        e.preventDefault();
+        switch(e.type){
+          case 'click': alert('dragover'+e);break;
+          case 'dragenter':
+          this.innerHTML="请释放鼠标";console.log('dragenter'); 
+          break;
+          case 'dragover': 
+          console.log('dragover');
+          break; 
+          case 'drop':  
+             var aFiles=e.dataTransfer.files;
+             console.log(aFiles);
+             [].forEach.call(aFiles,function(current,index,arr){
+              var filesRead=new FileReader();
+              arr1.push(current);
+              /* current是当前aFlies的一个对象；里面有多个对象 */
+              console.log(current);
+              filesRead.readAsDataURL(current);
+              filesRead.onload=function(){
+                var ali=document.createElement('li');
+                ali.style='list-style:none;width:100px;display:inline-block'
+                ali.innerHTML="<img src='"+this.result+"' width='100px'>";
+                document.getElementById("filesList").appendChild(ali);
+             //   console.log(this.result);
+              }
+
+             });
+          {
+            /* files=e.dataTransfer.files[0];
+            var filesRead=new FileReader();
+            filesRead.readAsDataURL(files); */
+           /*  document.getElementById("filesList").innerHTML=
+             "<span>文件名："+files.name+"</span><br><span>文件大小："+
+            round(files.size/1024,2)+"kB</span>"; */
+//filesRead有error、abort、error、load、loadend、loadstart、progress
+            /* filesRead.addEventListener("load",function(){
+              document.getElementById("filesList").innerHTML=
+             "<span>文件名："+files.name+"</span><br><span>文件大小："+
+            round(files.size/1024,2)+"kB</span><br><img src='"+
+            this.result+"'>";
+              console.log(this.result);
+
+            },false)
+             console.log(filesRead); //result有绝对路径 */
+          }
+              
+             break; 
+          case 'dragleave':  this.innerHTML="请拖到此处"; break;; 
+         }
+     
+       }
+          /* 如果是多图片的话，[].foreach.call(files,function(current,index,arr){
+            //current指指向的延长作用域files
+          }) */
+          //为拖动对象提供数据传递属性 e.dataTransfer
+          //图片信息files=>lastmodified length name type size, type
+          //用于在源对象和目标对象的事件之间传递数据
+      var uploadBtn=document.getElementById("upload");
+      uploadBtn.onclick=function(e){
+       
+        arr1.forEach(function(current){
+          var xhr=new XMLHttpRequest();
+          var url='upload.php';
+          
+          xhr.upload.onprogress=function(e){
+            console.log( e.total+":"+e.loaded);
+          } //监控上传进度 e.total e.loaded
+          console.log(current);
+          xhr.open('POST',url,true);
+          var formData=new FormData();
+          formData.append('file',current)
+          xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+              if(xhr.status==200){
+                //responseText 检查PHP参数是否有错
+                alert('success')
+              }
+            };
+        } 
+          xhr.send(formData);
+
+        })
+        
+              //事情完成后做什么
+      /*  
+       xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+              if(xhr.status==200){
+                //responseText 检查PHP参数是否有错
+              }
+            };
+        } 
+      */
+        //FormData对象类似于form表单提交数据，键对传送
+        
+       
+      }
+   </script>
+
+</body>
+</html>
+

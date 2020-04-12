@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      body{padding: 0;margin: 0;}
+      ul,li{list-style: none;}
+      .box{
+        width: 1000px;
+        height: 360px;
+        margin: 75px auto;
+        border: 5px dotted pink;
+        border-radius: 20px;
+      }
+      .box ul{height: 360px;
+      padding: 0;
+      display: inline-block;
+      margin: 0 auto;width: 100%;
+      transition: 0.5s;}
+      
+      .box ul li{float: left;height: 300px;width: 220px;
+     margin:25px 15px;cursor: pointer;
+     /* 重点 */transform-style: preserve-3d;
+     /* 让子级元素在3d占据位置
+        截交
+      */
+      }
+      .box ul li img{height: 300px;width: 220px; 
+      transition: all 0.5s linear;
+      }
+      /*   
+      .box ul li img:hover ~ .text{
+      transform:rotateY(0);
+      } ~兄弟选择器
+       animation:name duration infinite cubic-bezier();
+       @keyframes name{0{
+        width: 100px;
+      }50%{}100%{}}
+       animation-play-state: paused  动画状态，可以设定什么时候暂停
+      */
+      .box ul li:hover > .text{
+      transform:rotateY(0);
+     
+      }
+      
+      .box ul li:hover > img{
+      transform:rotateY(180deg);
+      }
+      li .text{
+        /* 重点 */margin-top:-304px;
+        color:white;text-align: center;background: orange;
+        cursor: text;
+        height: 300px;width: 220px;overflow: hidden;
+        transition:all 0.5s linear;transform:rotateY(-180deg);
+      }
+      h3{color: white;line-height: 45px;height: 45px;margin:0; }
+      .text p{margin:0;text-align: left;text-indent: 16px;padding:0 10px;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+        <li>
+          <img src="https://img3.doubanio.com/view/photo/l/public/p2353891543.webp " draggable="false">
+          <div class='text'>
+            <h3>人物</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti magni distinctio voluptates ipsum facere commodi eos consequuntur asperiores ea quas! Excepturi voluptas sit blanditiis error tempora magnam nulla dolorem consequatur.</p>
+          </div>       
+        </li>
+        <li>
+          <img src="https://img3.doubanio.com/view/photo/l/public/p2353891543.webp " draggable="false">
+          <div class='text'>
+              <h3>人物</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia voluptas eum quasi illo perferendis facere fuga, neque odit repudiandae consequuntur. Ab voluptatibus minima adipisci architecto eligendi excepturi omnis nostrum aperiam!</p>
+          </div>     
+        </li>
+        <li>
+          <img src="https://img3.doubanio.com/view/photo/l/public/p2353891543.webp " draggable="false">
+          <div class='text'>
+              <h3>人物</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia vero error laborum mollitia praesentium reprehenderit id, neque perspiciatis eveniet voluptatibus hic ipsum saepe natus libero vitae aliquam consectetur doloribus in.</p>
+          </div>    
+        </li>
+        <li>
+          <img src="https://img3.doubanio.com/view/photo/l/public/p2353891543.webp " draggable="false">
+          <div class='text'>
+              <h3>人物</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti magni distinctio voluptates ipsum facere commodi eos consequuntur asperiores ea quas! Excepturi voluptas sit blanditiis error tempora magnam nulla dolorem consequatur.</p>
+          </div>      
+        </li>
+ 
+   
+    </ul>
+  </div>
+</body>
+</html>
